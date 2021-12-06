@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @Builder
 @Data
-@Document
+@Document(collection = "teams")
 public class Team {
     @Id
     private String id;
