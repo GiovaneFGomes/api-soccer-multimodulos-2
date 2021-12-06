@@ -1,5 +1,1 @@
 rootProject.name = 'soccer'
-
-include 'repository'
-include 'service'
-include 'controller'
