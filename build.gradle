@@ -5,7 +5,6 @@ plugins {
 	id 'java'
 }
 
-
 group = 'com.giovane'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
@@ -16,13 +15,11 @@ repositories {
 
 dependencies {
 //	implementation 'org.springframework.cloud:spring-cloud-config-server:3.0.5'
-//	implementation 'io.reactivex.rxjava2:rxjava:x.y.z'
-
-
+	implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
-	implementation 'org.springframework.boot:spring-boot-starter-validation:2.5.5'
+	implementation 'org.springframework.boot:spring-boot-starter-validation:2.6.1'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
