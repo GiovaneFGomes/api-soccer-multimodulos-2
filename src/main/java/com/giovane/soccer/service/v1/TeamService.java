@@ -6,6 +6,7 @@ import com.giovane.soccer.service.mapper.response.TeamServiceResponseMapper;
 import com.giovane.soccer.service.model.request.TeamServiceRequest;
 import com.giovane.soccer.service.model.response.TeamServiceResponse;
 import lombok.AllArgsConstructor;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
@@ -23,16 +24,14 @@ public class TeamService {
     public Mono<TeamServiceResponse> saveTeam(TeamServiceRequest team) {
         Team teamSave = toTeamEntity(team);
         Mono<Team> teamResponse = repository.save(teamSave);
-        return toTeamServiceResponse(teamResponse);
+        return teamResponse.map(TeamServiceResponseMapper::toTeamServiceResponse);
     }
 
     public Mono<TeamServiceResponse> updateTeamById(TeamServiceRequest team, String id) {
         team.setId(id);
         Team teamSave = toTeamEntity(team);
         Mono<Team> teamResponse = repository.save(teamSave);
-        repository.save(teamSave)
-              .map(val -> val.).switchIfEmpty();
-        return toTeamServiceResponse(teamResponse);
+        return teamResponse.map(TeamServiceResponseMapper::toTeamServiceResponse);
     }
 
     public Mono<Void> deleteTeamById(String id) {
@@ -42,7 +41,7 @@ public class TeamService {
     public Mono<TeamServiceResponse> findTeamById(String id) {
         Mono<Team> teamResponse = repository.findById(id)
                 .switchIfEmpty(Mono.error(new ResponseStatusException(NOT_FOUND, "ID not found")));
-        return toTeamServiceResponse(teamResponse);
+        return teamResponse.map(TeamServiceResponseMapper::toTeamServiceResponse);
     }
 
     public Flux<TeamServiceResponse> findAllTeams() {
