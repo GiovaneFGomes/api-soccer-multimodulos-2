@@ -4,9 +4,11 @@ import com.giovane.soccer.controller.model.request.TeamControllerRequest;
 import com.giovane.soccer.controller.model.response.TeamControllerResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import javax.validation.Valid;
-import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.*;
+import static org.springframework.http.HttpStatus.OK;
 
 @AllArgsConstructor
 @RestController
@@ -17,12 +19,32 @@ public class TeamController {
 
     @ResponseStatus(CREATED)
     @PostMapping
-    public Mono<TeamControllerResponse> saveTeam(@RequestBody @Valid TeamControllerRequest team) {
+    public Mono<TeamControllerResponse> saveTeam(@Valid @RequestBody TeamControllerRequest team) {
         return facade.saveTeam(team);
     }
 
-    public Mono<TeamControllerResponse> updateTeamById(@RequestBody @Valid TeamControllerRequest team) {
-        return team.
+    @ResponseStatus(NOT_FOUND)
+    @PutMapping("/{id}")
+    public Mono<TeamControllerResponse> updateTeamById(@Valid @RequestBody TeamControllerRequest team, @PathVariable("id") String id) {
+        return facade.updateTeamById(team, id);
+    }
+
+    @ResponseStatus(NO_CONTENT)
+    @DeleteMapping("/{id}")
+    public Mono<Void> deleteTeamById(@PathVariable("id") String id) {
+       return facade.deleteTeamById(id);
+    }
+
+    @ResponseStatus(OK)
+    @GetMapping("/{id}")
+    public Mono<TeamControllerResponse> findTeamById(@PathVariable("id") String id) {
+        return facade.findTeamById(id);
+    }
+
+    @ResponseStatus(OK)
+    @GetMapping("/findAll")
+    public Flux<TeamControllerResponse> findAllTeams() {
+        return facade.findAllTeams();
     }
 
 }

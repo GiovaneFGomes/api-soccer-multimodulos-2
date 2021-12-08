@@ -18,7 +18,8 @@ public class TeamFacade {
     }
 
     public Mono<TeamServiceResponse> updateTeamById(TeamServiceRequest team, String id) {
-        return service.updateTeamById(team, id);
+        return service.findTeamById(id)
+                .flatMap(val -> service.updateTeamById(team, val.getId()));
     }
 
     public Mono<Void> deleteTeamById(String id) {
