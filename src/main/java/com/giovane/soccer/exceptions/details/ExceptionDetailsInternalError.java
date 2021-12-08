@@ -6,7 +6,7 @@ import java.time.Instant;
 
 @SuperBuilder
 @Data
-public class ExceptionDetailsBadRequest {
+public class ExceptionDetailsInternalError {
     private Integer status;
     private String title;
     private Instant timestamp;

@@ -1,6 +1,6 @@
 package com.giovane.soccer.exceptions.handler;
 
-import com.giovane.soccer.exceptions.details.ExceptionDetailsBadRequest;
+import com.giovane.soccer.exceptions.details.ExceptionDetailsInternalError;
 import com.giovane.soccer.exceptions.details.ExceptionDetailsNotFound;
 import com.giovane.soccer.exceptions.details.ExceptionMethodNotValidDetails;
 import com.giovane.soccer.exceptions.notfound.NotFoundException;
@@ -13,8 +13,8 @@ import java.time.Instant;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
+
+import static org.springframework.http.HttpStatus.*;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -48,11 +48,11 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    @ResponseStatus(BAD_REQUEST)
-    public ExceptionDetailsBadRequest handlerBadRequest(){
-       return ExceptionDetailsBadRequest.builder()
-                .status(BAD_REQUEST.value())
-                .title("Bad request")
+    @ResponseStatus(INTERNAL_SERVER_ERROR)
+    public ExceptionDetailsInternalError handlerInternalServerError(){
+       return ExceptionDetailsInternalError.builder()
+                .status(INTERNAL_SERVER_ERROR.value())
+                .title("Internal Server Error")
                 .timestamp(Instant.now())
                 .details("You sent a request that this server didn't understand")
                 .developerMessage("Check the request")
