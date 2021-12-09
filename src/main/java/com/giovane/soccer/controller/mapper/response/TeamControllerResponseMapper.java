@@ -8,9 +8,9 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface TeamControllerResponseMapper {
 
-    static TeamControllerResponse toTeamControllerResponse(TeamServiceResponse teamResponseService) {
+    static TeamControllerResponse toTeamControllerResponse(TeamServiceResponse teamResponse) {
         return Mappers.getMapper(TeamControllerResponseMapper.class)
-                .mapper(teamResponseService);
+                .mapper(teamResponse);
     }
 
     TeamControllerResponse mapper(TeamServiceResponse teamResponse);

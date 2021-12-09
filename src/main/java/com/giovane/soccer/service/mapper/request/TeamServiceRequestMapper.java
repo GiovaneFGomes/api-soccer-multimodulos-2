@@ -8,11 +8,11 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface TeamServiceRequestMapper {
 
-    static Team toTeamEntity(TeamServiceRequest team){
+    static Team toTeamEntity(TeamServiceRequest teamRequest){
         return Mappers.getMapper(TeamServiceRequestMapper.class)
-                .mapper(team);
+                .mapper(teamRequest);
     }
 
-    Team mapper(TeamServiceRequest team);
+    Team mapper(TeamServiceRequest teamRequest);
 
 }

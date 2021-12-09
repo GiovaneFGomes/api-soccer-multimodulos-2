@@ -19,14 +19,14 @@ public class TeamController {
 
     @ResponseStatus(CREATED)
     @PostMapping
-    public Mono<TeamControllerResponse> saveTeam(@RequestBody @Valid TeamControllerRequest team) {
-        return facade.saveTeam(team);
+    public Mono<TeamControllerResponse> saveTeam(@RequestBody @Valid TeamControllerRequest teamRequest) {
+        return facade.saveTeam(teamRequest);
     }
 
     @ResponseStatus(NOT_FOUND)
     @PutMapping("/{id}")
-    public Mono<TeamControllerResponse> updateTeamById(@RequestBody @Valid TeamControllerRequest team, @PathVariable("id") String id) {
-        return facade.updateTeamById(team, id);
+    public Mono<TeamControllerResponse> updateTeamById(@RequestBody @Valid TeamControllerRequest teamRequest, @PathVariable("id") String id) {
+        return facade.updateTeamById(teamRequest, id);
     }
 
     @ResponseStatus(NO_CONTENT)

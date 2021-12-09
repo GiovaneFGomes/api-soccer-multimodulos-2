@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @AllArgsConstructor
@@ -16,7 +15,6 @@ public class TeamControllerRequest {
 
     private String id;
 
-    @Pattern(regexp = "\\A(?!\\s*\\Z).+")
     @NotBlank
     @Size(min = 3, max = 40, message = "Min 3 and Max 40 characters.")
     private String name;

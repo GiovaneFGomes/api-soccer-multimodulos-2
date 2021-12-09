@@ -18,16 +18,16 @@ public class TeamControllerFacade {
 
     private final TeamFacade facade;
 
-    public Mono<TeamControllerResponse> saveTeam(TeamControllerRequest team) {
-        TeamServiceRequest teamSave = toTeamService(team);
-        Mono<TeamServiceResponse> teamResponse = facade.saveTeam(teamSave);
-        return teamResponse.map(TeamControllerResponseMapper::toTeamControllerResponse);
+    public Mono<TeamControllerResponse> saveTeam(TeamControllerRequest teamRequest) {
+        TeamServiceRequest teamService = toTeamService(teamRequest);
+        Mono<TeamServiceResponse> teamServiceResponseMono = facade.saveTeam(teamService);
+        return teamServiceResponseMono.map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
-    public Mono<TeamControllerResponse> updateTeamById(TeamControllerRequest team, String id) {
-        TeamServiceRequest teamSave = toTeamService(team);
-        Mono<TeamServiceResponse> teamResponse = facade.updateTeamById(teamSave, id);
-        return teamResponse.map(TeamControllerResponseMapper::toTeamControllerResponse);
+    public Mono<TeamControllerResponse> updateTeamById(TeamControllerRequest teamRequest, String id) {
+        TeamServiceRequest teamService = toTeamService(teamRequest);
+        Mono<TeamServiceResponse> teamServiceResponseMono = facade.updateTeamById(teamService, id);
+        return teamServiceResponseMono.map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
     public Mono<Void> deleteTeamById(String id) {
@@ -35,8 +35,8 @@ public class TeamControllerFacade {
     }
 
     public Mono<TeamControllerResponse> findTeamById(String id) {
-        Mono<TeamServiceResponse> teamResponse = facade.findTeamById(id);
-        return teamResponse.map(TeamControllerResponseMapper::toTeamControllerResponse);
+        Mono<TeamServiceResponse> teamServiceResponseMono = facade.findTeamById(id);
+        return teamServiceResponseMono.map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
     public Flux<TeamControllerResponse> findAllTeams() {

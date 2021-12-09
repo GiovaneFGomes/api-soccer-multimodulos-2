@@ -13,13 +13,13 @@ public class TeamFacade {
 
     private final TeamService service;
 
-    public Mono<TeamServiceResponse> saveTeam(TeamServiceRequest team) {
-        return service.saveTeam(team);
+    public Mono<TeamServiceResponse> saveTeam(TeamServiceRequest teamRequest) {
+        return service.saveTeam(teamRequest);
     }
 
-    public Mono<TeamServiceResponse> updateTeamById(TeamServiceRequest team, String id) {
+    public Mono<TeamServiceResponse> updateTeamById(TeamServiceRequest teamRequest, String id) {
         return service.findTeamById(id)
-                .flatMap(val -> service.updateTeamById(team, val.getId()));
+                .flatMap(val -> service.updateTeamById(teamRequest, val.getId()));
     }
 
     public Mono<Void> deleteTeamById(String id) {

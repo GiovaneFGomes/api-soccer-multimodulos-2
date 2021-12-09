@@ -13,6 +13,6 @@ public interface TeamControllerRequestMapper {
                 .mapper(teamRequest);
     }
 
-    TeamServiceRequest mapper(TeamControllerRequest team);
+    TeamServiceRequest mapper(TeamControllerRequest teamRequest);
 
 }
