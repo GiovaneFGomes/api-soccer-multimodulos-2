@@ -1,7 +1,7 @@
 package com.giovane.soccer.controller.mapper.response;
 
 import com.giovane.soccer.controller.model.response.TeamControllerResponse;
-import com.giovane.soccer.service.v1.model.response.TeamServiceResponse;
+import com.giovane.soccer.service.model.response.TeamServiceResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

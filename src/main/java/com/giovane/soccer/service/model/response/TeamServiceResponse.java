@@ -1,10 +1,7 @@
-package com.giovane.soccer.controller.model.response;
+package com.giovane.soccer.service.model.response;
 
 import com.giovane.soccer.entity.player.Player;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -13,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Data
-public class TeamControllerResponse {
+public class TeamServiceResponse {
     private String id;
     private String name;
     private String stadium;
