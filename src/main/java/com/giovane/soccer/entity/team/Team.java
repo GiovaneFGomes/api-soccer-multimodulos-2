@@ -1,8 +1,12 @@
-package com.giovane.soccer.entity;
+package com.giovane.soccer.entity.team;
 
+import com.giovane.soccer.entity.player.Player;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,4 +19,6 @@ public class Team {
     private String name;
     private String stadium;
     private String country;
+    private List<Player> player;
+    private LocalDate date;
 }

@@ -1,6 +1,6 @@
 package com.giovane.soccer.service.v1;
 
-import com.giovane.soccer.entity.Team;
+import com.giovane.soccer.entity.team.Team;
 import com.giovane.soccer.repository.TeamRepository;
 import com.giovane.soccer.service.mapper.response.TeamServiceResponseMapper;
 import com.giovane.soccer.service.model.request.TeamServiceRequest;

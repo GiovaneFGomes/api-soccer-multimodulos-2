@@ -1,6 +1,6 @@
 package com.giovane.soccer.repository;
 
-import com.giovane.soccer.entity.Team;
+import com.giovane.soccer.entity.team.Team;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 

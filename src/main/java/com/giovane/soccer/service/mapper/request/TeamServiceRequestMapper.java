@@ -1,6 +1,6 @@
 package com.giovane.soccer.service.mapper.request;
 
-import com.giovane.soccer.entity.Team;
+import com.giovane.soccer.entity.team.Team;
 import com.giovane.soccer.service.model.request.TeamServiceRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
