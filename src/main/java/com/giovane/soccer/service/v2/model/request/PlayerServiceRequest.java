@@ -1,18 +1,14 @@
-package com.giovane.soccer.entity.player;
+package com.giovane.soccer.service.v2.model.request;
 
 import lombok.*;
 import com.giovane.soccer.utils.Position;
 import com.giovane.soccer.entity.team.Team;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
-@Document(collection = "players")
-public class Player {
-    @Id
+public class PlayerServiceRequest {
     private String id;
     private String name;
     private Integer age;

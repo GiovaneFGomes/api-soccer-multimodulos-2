@@ -1,9 +1,9 @@
-package com.giovane.soccer.service.mapper.response;
+package com.giovane.soccer.service.v2.mapper.response;
 
-import com.giovane.soccer.entity.team.Team;
-import com.giovane.soccer.service.model.response.TeamServiceResponse;
-import org.mapstruct.Mapper;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
+import com.giovane.soccer.entity.team.Team;
+import com.giovane.soccer.service.v2.model.response.TeamServiceResponse;
 
 @Mapper
 public interface TeamServiceResponseMapper {

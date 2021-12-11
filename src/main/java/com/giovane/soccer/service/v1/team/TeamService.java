@@ -1,16 +1,16 @@
-package com.giovane.soccer.service.v1;
+package com.giovane.soccer.service.v1.team;
 
 import com.giovane.soccer.entity.team.Team;
 import com.giovane.soccer.repository.team.TeamRepository;
-import com.giovane.soccer.service.mapper.response.TeamServiceResponseMapper;
-import com.giovane.soccer.service.model.request.TeamServiceRequest;
-import com.giovane.soccer.service.model.response.TeamServiceResponse;
+import com.giovane.soccer.service.v1.mapper.response.TeamServiceResponseMapper;
+import com.giovane.soccer.service.v1.model.request.TeamServiceRequest;
+import com.giovane.soccer.service.v1.model.response.TeamServiceResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import static com.giovane.soccer.service.mapper.request.TeamServiceRequestMapper.toTeamEntity;
+import static com.giovane.soccer.service.v1.mapper.request.TeamServiceRequestMapper.toTeamEntity;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @AllArgsConstructor

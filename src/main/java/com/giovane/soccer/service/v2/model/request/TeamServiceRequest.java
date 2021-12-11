@@ -1,19 +1,15 @@
-package com.giovane.soccer.entity.team;
+package com.giovane.soccer.service.v2.model.request;
 
 import lombok.*;
 import java.util.List;
 import java.time.LocalDate;
 import com.giovane.soccer.entity.player.Player;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
-@Document(collection = "teams")
-public class Team {
-    @Id
+public class TeamServiceRequest {
     private String id;
     private String name;
     private String stadium;

@@ -1,6 +1,9 @@
-package com.giovane.soccer.service.model.response;
+package com.giovane.soccer.service.v2.model.response;
 
 import lombok.*;
+import java.util.List;
+import java.time.LocalDate;
+import com.giovane.soccer.entity.player.Player;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11,4 +14,6 @@ public class TeamServiceResponse {
     private String name;
     private String stadium;
     private String country;
+    private List<Player> player;
+    private LocalDate date;
 }

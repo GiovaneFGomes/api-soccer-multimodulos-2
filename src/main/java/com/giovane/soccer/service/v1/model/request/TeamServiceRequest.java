@@ -1,4 +1,4 @@
-package com.giovane.soccer.service.model.request;
+package com.giovane.soccer.service.v1.model.request;
 
 import lombok.*;
 
