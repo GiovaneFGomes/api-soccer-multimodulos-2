@@ -1,7 +1,7 @@
 package com.giovane.soccer.controller.model.response;
 
 import com.giovane.soccer.entity.team.Team;
-import com.giovane.soccer.utils.Position;
+import com.giovane.soccer.commons.Position;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

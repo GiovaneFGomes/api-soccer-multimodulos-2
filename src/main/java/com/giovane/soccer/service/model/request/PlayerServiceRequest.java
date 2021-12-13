@@ -1,7 +1,7 @@
 package com.giovane.soccer.service.model.request;
 
 import lombok.*;
-import com.giovane.soccer.utils.Position;
+import com.giovane.soccer.commons.Position;
 import com.giovane.soccer.entity.team.Team;
 
 @AllArgsConstructor

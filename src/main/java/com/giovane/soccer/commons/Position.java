@@ -1,4 +1,4 @@
-package com.giovane.soccer.utils;
+package com.giovane.soccer.commons;
 
 public enum Position {
     GOALKEEPER, CENTER_BACK, LEFT_FULLBACK, RIGHT_FULLBACK, ATTACKING_MID,
