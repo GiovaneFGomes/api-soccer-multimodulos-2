@@ -2,11 +2,29 @@ package com.giovane.soccer.controller.mapper.request;
 
 import com.giovane.soccer.controller.model.request.TeamControllerRequest;
 import com.giovane.soccer.service.model.request.TeamServiceRequest;
-import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 
-@Mapper
+//@Mapper
 public interface TeamControllerRequestMapper {
+
+    static TeamServiceRequest toTeamService(TeamControllerRequest teamRequest) {
+        if (teamRequest == null) {
+            return null;
+        }
+
+        return TeamServiceRequest.builder()
+                .id(teamRequest.getId())
+                .name(teamRequest.getName())
+                .stadium(teamRequest.getStadium())
+                .country(teamRequest.getCountry())
+                .player(teamRequest.getPlayer())
+                .date(teamRequest.getDate())
+                .build();
+    }
+
+}
+
+/*
+    MAPPER
 
     static TeamServiceRequest toTeamService(TeamControllerRequest teamRequest){
         return Mappers.getMapper(TeamControllerRequestMapper.class)
@@ -15,4 +33,4 @@ public interface TeamControllerRequestMapper {
 
     TeamServiceRequest mapper(TeamControllerRequest teamRequest);
 
-}
+ */

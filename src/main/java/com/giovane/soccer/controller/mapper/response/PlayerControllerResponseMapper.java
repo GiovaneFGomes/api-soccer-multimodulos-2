@@ -1,18 +1,38 @@
 package com.giovane.soccer.controller.mapper.response;
 
-import org.mapstruct.*;
-import org.mapstruct.factory.Mappers;
 import com.giovane.soccer.service.model.response.PlayerServiceResponse;
 import com.giovane.soccer.controller.model.response.PlayerControllerResponse;
 
-@Mapper
+//@Mapper
 public interface PlayerControllerResponseMapper {
 
-    static PlayerControllerResponse toPlayerControllerResponse(PlayerServiceResponse playerResponse){
-        return Mappers.getMapper(PlayerControllerResponseMapper.class)
-                .mapper(playerResponse);
+    static PlayerControllerResponse toPlayerControllerResponse(PlayerServiceResponse playerResponse) {
+        if (playerResponse == null) {
+            return null;
+        }
+
+        return PlayerControllerResponse.builder()
+                .id(playerResponse.getId())
+                .name(playerResponse.getName())
+                .age(playerResponse.getAge())
+                .nationality(playerResponse.getNationality())
+                .actualTeam(playerResponse.getActualTeam())
+                .number(playerResponse.getNumber())
+                .position(playerResponse.getPosition())
+                .height(playerResponse.getHeight())
+                .build();
     }
 
-    PlayerControllerResponse mapper(PlayerServiceResponse playerResponse);
-
 }
+
+/*
+    MAPPER
+
+    static PlayerControllerResponse toPlayerControllerResponse(PlayerServiceResponse playerResponse){
+            return Mappers.getMapper(PlayerControllerResponseMapper.class)
+                    .mapper(playerResponse);
+        }
+
+        PlayerControllerResponse mapper(PlayerServiceResponse playerResponse);
+
+ */

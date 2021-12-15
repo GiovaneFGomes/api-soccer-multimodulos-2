@@ -2,17 +2,35 @@ package com.giovane.soccer.service.mapper.response;
 
 import com.giovane.soccer.entity.team.Team;
 import com.giovane.soccer.service.model.response.TeamServiceResponse;
-import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 
-@Mapper
+//@Mapper
 public interface TeamServiceResponseMapper {
 
-    static TeamServiceResponse toTeamServiceResponse(Team team){
-        return Mappers.getMapper(TeamServiceResponseMapper.class)
-                .mapper(team);
+    static TeamServiceResponse toTeamServiceResponse(Team team) {
+        if (team == null) {
+            return null;
+        }
+
+        return TeamServiceResponse.builder()
+                .id(team.getId())
+                .name(team.getName())
+                .stadium(team.getStadium())
+                .country(team.getCountry())
+                .player(team.getPlayer())
+                .date(team.getDate())
+                .build();
     }
 
-    TeamServiceResponse mapper(Team team);
-
 }
+
+/*
+     MAPPER
+
+     static TeamServiceResponse toTeamServiceResponse(Team team){
+            return Mappers.getMapper(TeamServiceResponseMapper.class)
+                    .mapper(team);
+        }
+
+        TeamServiceResponse mapper(Team team);
+
+ */
