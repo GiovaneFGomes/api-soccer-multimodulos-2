@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import static com.giovane.soccer.controller.mapper.request.TeamControllerRequestMapper.toTeamService;
+
 @AllArgsConstructor
 @Component
 public class TeamControllerFacade {
@@ -19,15 +21,13 @@ public class TeamControllerFacade {
     private final TeamFacade facade;
 
     public Mono<TeamControllerResponse> save(TeamControllerRequest teamRequest) {
-        TeamServiceRequest teamService = TeamControllerRequestMapper.toTeamService(teamRequest);
-        Mono<TeamServiceResponse> teamServiceResponseMono = facade.save(teamService);
-        return teamServiceResponseMono.map(TeamControllerResponseMapper::toTeamControllerResponse);
+        return facade.save(toTeamService(teamRequest))
+                .map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
     public Mono<TeamControllerResponse> update(TeamControllerRequest teamRequest, String id) {
-        TeamServiceRequest teamService = TeamControllerRequestMapper.toTeamService(teamRequest); //todo encadear
-        Mono<TeamServiceResponse> teamServiceResponseMono = facade.update(teamService, id);
-        return teamServiceResponseMono.map(TeamControllerResponseMapper::toTeamControllerResponse);
+        return facade.update(toTeamService(teamRequest), id)
+                .map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
     public Mono<Void> delete(String id) {
@@ -35,8 +35,8 @@ public class TeamControllerFacade {
     }
 
     public Mono<TeamControllerResponse> findById(String id) {
-        Mono<TeamServiceResponse> teamServiceResponseMono = facade.findById(id);
-        return teamServiceResponseMono.map(TeamControllerResponseMapper::toTeamControllerResponse);
+        return facade.findById(id)
+                .map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
     public Flux<TeamControllerResponse> findAll() {

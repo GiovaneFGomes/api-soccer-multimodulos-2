@@ -12,6 +12,8 @@ import com.giovane.soccer.service.model.response.PlayerServiceResponse;
 import com.giovane.soccer.controller.model.request.PlayerControllerRequest;
 import com.giovane.soccer.controller.model.response.PlayerControllerResponse;
 
+import static com.giovane.soccer.controller.mapper.request.PlayerControllerRequestMapper.toPlayerService;
+
 @AllArgsConstructor
 @Component
 public class PlayerControllerFacade {
@@ -19,15 +21,13 @@ public class PlayerControllerFacade {
     private final PlayerFacade facade;
 
     public Mono<PlayerControllerResponse> save(PlayerControllerRequest playerRequest) {
-        PlayerServiceRequest playerService = PlayerControllerRequestMapper.toPlayerService(playerRequest);
-        Mono<PlayerServiceResponse> playerServiceResponseMono = facade.save(playerService);
-        return playerServiceResponseMono.map(PlayerControllerResponseMapper::toPlayerControllerResponse);
+        return facade.save(toPlayerService(playerRequest))
+                .map(PlayerControllerResponseMapper::toPlayerControllerResponse);
     }
 
     public Mono<PlayerControllerResponse> update(PlayerControllerRequest playerRequest, String id) {
-        PlayerServiceRequest playerService = PlayerControllerRequestMapper.toPlayerService(playerRequest);
-        Mono<PlayerServiceResponse> playerServiceResponseMono = facade.update(playerService, id);
-        return playerServiceResponseMono.map(PlayerControllerResponseMapper::toPlayerControllerResponse);
+        return facade.update( toPlayerService(playerRequest), id)
+                .map(PlayerControllerResponseMapper::toPlayerControllerResponse);
     }
 
     public Mono<Void> delete(String id) {
@@ -35,8 +35,8 @@ public class PlayerControllerFacade {
     }
 
     public Mono<PlayerControllerResponse> findById(String id) {
-        Mono<PlayerServiceResponse> playerServiceResponseMono = facade.findById(id);
-        return playerServiceResponseMono.map(PlayerControllerResponseMapper::toPlayerControllerResponse);
+        return facade.findById(id)
+                .map(PlayerControllerResponseMapper::toPlayerControllerResponse);
     }
 
     public Flux<PlayerControllerResponse> findAll() {

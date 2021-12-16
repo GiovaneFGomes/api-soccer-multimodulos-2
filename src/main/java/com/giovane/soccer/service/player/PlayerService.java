@@ -12,6 +12,7 @@ import org.springframework.stereotype.*;
 import com.giovane.soccer.entity.player.Player;
 import com.giovane.soccer.repository.player.PlayerRepository;
 
+import static com.giovane.soccer.service.mapper.request.PlayerServiceRequestMapper.toPlayerEntity;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @AllArgsConstructor
@@ -21,16 +22,14 @@ public class PlayerService {
     private final PlayerRepository repository;
 
     public Mono<PlayerServiceResponse> save(PlayerServiceRequest playerRequest) {
-        Player playerEntity = PlayerServiceRequestMapper.toPlayerEntity(playerRequest);
-        Mono<Player> playerResponse = repository.save(playerEntity);
-        return playerResponse.map(PlayerServiceResponseMapper::toPlayerServiceResponse);
+        return repository.save(toPlayerEntity(playerRequest))
+                .map(PlayerServiceResponseMapper::toPlayerServiceResponse);
     }
 
     public Mono<PlayerServiceResponse> update(PlayerServiceRequest playerRequest, String id) {
         playerRequest.setId(id);
-        Player playerEntity = PlayerServiceRequestMapper.toPlayerEntity(playerRequest);
-        Mono<Player> playerResponse = repository.save(playerEntity);
-        return playerResponse.map(PlayerServiceResponseMapper::toPlayerServiceResponse);
+        return repository.save(toPlayerEntity(playerRequest))
+                .map(PlayerServiceResponseMapper::toPlayerServiceResponse);
     }
 
     public Mono<Void> delete(String id) {
@@ -38,9 +37,9 @@ public class PlayerService {
     }
 
     public Mono<PlayerServiceResponse> findById(String id) {
-        Mono<Player> playerResponse = repository.findById(id)
-                .switchIfEmpty(Mono.error(() -> new ResponseStatusException(NOT_FOUND, "ID not found")));
-        return playerResponse.map(PlayerServiceResponseMapper::toPlayerServiceResponse);
+        return repository.findById(id)
+                .switchIfEmpty(Mono.error(() -> new ResponseStatusException(NOT_FOUND, "ID not found")))
+                .map(PlayerServiceResponseMapper::toPlayerServiceResponse);
     }
 
     public Flux<PlayerServiceResponse> findAll() {

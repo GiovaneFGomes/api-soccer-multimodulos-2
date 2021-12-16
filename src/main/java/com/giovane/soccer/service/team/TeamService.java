@@ -35,9 +35,9 @@ public class TeamService {
     }
 
     public Mono<TeamServiceResponse> findById(String id) {
-        Mono<Team> teamEntityMono = repository.findById(id)
-                .switchIfEmpty(Mono.error(new ResponseStatusException(NOT_FOUND, "ID not found")));
-        return teamEntityMono.map(TeamServiceResponseMapper::toTeamServiceResponse);
+        return repository.findById(id)
+                .switchIfEmpty(Mono.error(new ResponseStatusException(NOT_FOUND, "ID not found")))
+                .map(TeamServiceResponseMapper::toTeamServiceResponse);
     }
 
     public Flux<TeamServiceResponse> findAll() {
