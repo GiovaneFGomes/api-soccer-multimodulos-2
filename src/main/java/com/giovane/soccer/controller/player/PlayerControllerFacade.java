@@ -18,29 +18,29 @@ public class PlayerControllerFacade {
 
     private final PlayerFacade facade;
 
-    public Mono<PlayerControllerResponse> savePlayer(PlayerControllerRequest playerRequest) {
+    public Mono<PlayerControllerResponse> save(PlayerControllerRequest playerRequest) {
         PlayerServiceRequest playerService = PlayerControllerRequestMapper.toPlayerService(playerRequest);
-        Mono<PlayerServiceResponse> playerServiceResponseMono = facade.savePlayer(playerService);
+        Mono<PlayerServiceResponse> playerServiceResponseMono = facade.save(playerService);
         return playerServiceResponseMono.map(PlayerControllerResponseMapper::toPlayerControllerResponse);
     }
 
-    public Mono<PlayerControllerResponse> updatePlayerById(PlayerControllerRequest playerRequest, String id) {
+    public Mono<PlayerControllerResponse> update(PlayerControllerRequest playerRequest, String id) {
         PlayerServiceRequest playerService = PlayerControllerRequestMapper.toPlayerService(playerRequest);
-        Mono<PlayerServiceResponse> playerServiceResponseMono = facade.updatePlayerById(playerService, id);
+        Mono<PlayerServiceResponse> playerServiceResponseMono = facade.update(playerService, id);
         return playerServiceResponseMono.map(PlayerControllerResponseMapper::toPlayerControllerResponse);
     }
 
-    public Mono<Void> deletePlayerById(String id) {
-        return facade.deletePlayerById(id);
+    public Mono<Void> delete(String id) {
+        return facade.delete(id);
     }
 
-    public Mono<PlayerControllerResponse> findPlayerById(String id) {
-        Mono<PlayerServiceResponse> playerServiceResponseMono = facade.findPlayerById(id);
+    public Mono<PlayerControllerResponse> findById(String id) {
+        Mono<PlayerServiceResponse> playerServiceResponseMono = facade.findById(id);
         return playerServiceResponseMono.map(PlayerControllerResponseMapper::toPlayerControllerResponse);
     }
 
-    public Flux<PlayerControllerResponse> findAllPlayers() {
-        return facade.findAllPlayers()
+    public Flux<PlayerControllerResponse> findAll() {
+        return facade.findAll()
                 .map(PlayerControllerResponseMapper::toPlayerControllerResponse);
     }
 

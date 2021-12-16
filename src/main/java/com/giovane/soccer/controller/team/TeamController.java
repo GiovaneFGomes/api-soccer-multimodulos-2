@@ -19,32 +19,32 @@ public class TeamController {
 
     @ResponseStatus(CREATED)
     @PostMapping
-    public Mono<TeamControllerResponse> saveTeam(@RequestBody @Valid TeamControllerRequest teamRequest) {
-        return facade.saveTeam(teamRequest);
+    public Mono<TeamControllerResponse> save(@RequestBody @Valid TeamControllerRequest teamRequest) {
+        return facade.save(teamRequest);
     }
 
     @ResponseStatus(NOT_FOUND)
     @PutMapping("/{id}")
-    public Mono<TeamControllerResponse> updateTeamById(@RequestBody @Valid TeamControllerRequest teamRequest, @PathVariable("id") String id) {
-        return facade.updateTeamById(teamRequest, id);
+    public Mono<TeamControllerResponse> update(@RequestBody @Valid TeamControllerRequest teamRequest, @PathVariable("id") String id) {
+        return facade.update(teamRequest, id);
     }
 
     @ResponseStatus(NO_CONTENT)
     @DeleteMapping("/{id}")
-    public Mono<Void> deleteTeamById(@PathVariable("id") String id) {
-       return facade.deleteTeamById(id);
+    public Mono<Void> delete(@PathVariable("id") String id) {
+       return facade.delete(id);
     }
 
     @ResponseStatus(OK)
     @GetMapping("/{id}")
-    public Mono<TeamControllerResponse> findTeamById(@PathVariable("id") String id) {
-        return facade.findTeamById(id);
+    public Mono<TeamControllerResponse> findById(@PathVariable("id") String id) {
+        return facade.findById(id);
     }
 
     @ResponseStatus(OK)
     @GetMapping("/findAll")
-    public Flux<TeamControllerResponse> findAllTeams() {
-        return facade.findAllTeams();
+    public Flux<TeamControllerResponse> findAll() {
+        return facade.findAll();
     }
 
 }

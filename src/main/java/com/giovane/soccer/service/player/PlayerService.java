@@ -20,30 +20,30 @@ public class PlayerService {
 
     private final PlayerRepository repository;
 
-    public Mono<PlayerServiceResponse> savePlayer(PlayerServiceRequest playerRequest) {
+    public Mono<PlayerServiceResponse> save(PlayerServiceRequest playerRequest) {
         Player playerEntity = PlayerServiceRequestMapper.toPlayerEntity(playerRequest);
         Mono<Player> playerResponse = repository.save(playerEntity);
         return playerResponse.map(PlayerServiceResponseMapper::toPlayerServiceResponse);
     }
 
-    public Mono<PlayerServiceResponse> updatePlayerById(PlayerServiceRequest playerRequest, String id) {
+    public Mono<PlayerServiceResponse> update(PlayerServiceRequest playerRequest, String id) {
         playerRequest.setId(id);
         Player playerEntity = PlayerServiceRequestMapper.toPlayerEntity(playerRequest);
         Mono<Player> playerResponse = repository.save(playerEntity);
         return playerResponse.map(PlayerServiceResponseMapper::toPlayerServiceResponse);
     }
 
-    public Mono<Void> deletePlayerById(String id) {
+    public Mono<Void> delete(String id) {
         return repository.deleteById(id);
     }
 
-    public Mono<PlayerServiceResponse> findPlayerById(String id) {
+    public Mono<PlayerServiceResponse> findById(String id) {
         Mono<Player> playerResponse = repository.findById(id)
                 .switchIfEmpty(Mono.error(() -> new ResponseStatusException(NOT_FOUND, "ID not found")));
         return playerResponse.map(PlayerServiceResponseMapper::toPlayerServiceResponse);
     }
 
-    public Flux<PlayerServiceResponse> findAllPlayers() {
+    public Flux<PlayerServiceResponse> findAll() {
         return repository.findAll()
                 .map(PlayerServiceResponseMapper::toPlayerServiceResponse);
     }

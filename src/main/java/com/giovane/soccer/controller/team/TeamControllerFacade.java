@@ -18,29 +18,29 @@ public class TeamControllerFacade {
 
     private final TeamFacade facade;
 
-    public Mono<TeamControllerResponse> saveTeam(TeamControllerRequest teamRequest) {
+    public Mono<TeamControllerResponse> save(TeamControllerRequest teamRequest) {
         TeamServiceRequest teamService = TeamControllerRequestMapper.toTeamService(teamRequest);
-        Mono<TeamServiceResponse> teamServiceResponseMono = facade.saveTeam(teamService);
+        Mono<TeamServiceResponse> teamServiceResponseMono = facade.save(teamService);
         return teamServiceResponseMono.map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
-    public Mono<TeamControllerResponse> updateTeamById(TeamControllerRequest teamRequest, String id) {
-        TeamServiceRequest teamService = TeamControllerRequestMapper.toTeamService(teamRequest);
-        Mono<TeamServiceResponse> teamServiceResponseMono = facade.updateTeamById(teamService, id);
+    public Mono<TeamControllerResponse> update(TeamControllerRequest teamRequest, String id) {
+        TeamServiceRequest teamService = TeamControllerRequestMapper.toTeamService(teamRequest); //todo encadear
+        Mono<TeamServiceResponse> teamServiceResponseMono = facade.update(teamService, id);
         return teamServiceResponseMono.map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
-    public Mono<Void> deleteTeamById(String id) {
-        return facade.deleteTeamById(id);
+    public Mono<Void> delete(String id) {
+        return facade.delete(id);
     }
 
-    public Mono<TeamControllerResponse> findTeamById(String id) {
-        Mono<TeamServiceResponse> teamServiceResponseMono = facade.findTeamById(id);
+    public Mono<TeamControllerResponse> findById(String id) {
+        Mono<TeamServiceResponse> teamServiceResponseMono = facade.findById(id);
         return teamServiceResponseMono.map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
-    public Flux<TeamControllerResponse> findAllTeams() {
-        return facade.findAllTeams()
+    public Flux<TeamControllerResponse> findAll() {
+        return facade.findAll()
                 .map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 

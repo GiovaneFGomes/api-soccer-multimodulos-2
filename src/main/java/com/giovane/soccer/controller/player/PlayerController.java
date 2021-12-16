@@ -18,31 +18,31 @@ public class PlayerController {
 
     @ResponseStatus(CREATED)
     @PostMapping
-    public Mono<PlayerControllerResponse> savePlayer(@RequestBody @Valid PlayerControllerRequest playerRequest) {
-        return facade.savePlayer(playerRequest);
+    public Mono<PlayerControllerResponse> save(@RequestBody @Valid PlayerControllerRequest playerRequest) {
+        return facade.save(playerRequest);
     }
 
     @ResponseStatus(NO_CONTENT)
     @PutMapping("/{id}")
-    public Mono<PlayerControllerResponse> updatePlayerById(@RequestBody @Valid PlayerControllerRequest playerRequest, @PathVariable("id") String id) {
-        return facade.updatePlayerById(playerRequest, id);
+    public Mono<PlayerControllerResponse> update(@RequestBody @Valid PlayerControllerRequest playerRequest, @PathVariable("id") String id) {
+        return facade.update(playerRequest, id);
     }
 
     @ResponseStatus(NO_CONTENT)
     @DeleteMapping("/{id}")
-    public Mono<Void> deletePlayerById(@PathVariable("id") String id) {
-        return facade.deletePlayerById(id);
+    public Mono<Void> delete(@PathVariable("id") String id) {
+        return facade.delete(id);
     }
 
     @ResponseStatus(OK)
     @GetMapping("/{id}")
-    public Mono<PlayerControllerResponse> findPlayerById(@PathVariable("id") String id) {
-        return facade.findPlayerById(id);
+    public Mono<PlayerControllerResponse> findById(@PathVariable("id") String id) {
+        return facade.findById(id);
     }
 
     @ResponseStatus(OK)
     @GetMapping("/findAll")
-    public Flux<PlayerControllerResponse> findAllPlayers() {
-        return facade.findAllPlayers();
+    public Flux<PlayerControllerResponse> findAll() {
+        return facade.findAll();
     }
 }

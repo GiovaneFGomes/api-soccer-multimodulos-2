@@ -13,26 +13,26 @@ public class PlayerFacade {
 
     private final PlayerService service;
 
-    public Mono<PlayerServiceResponse> savePlayer(PlayerServiceRequest playerResponse) {
-        return service.savePlayer(playerResponse);
+    public Mono<PlayerServiceResponse> save(PlayerServiceRequest playerResponse) {
+        return service.save(playerResponse);
     }
 
-    public Mono<PlayerServiceResponse> updatePlayerById(PlayerServiceRequest playerRequest,String id) {
-        return service.findPlayerById(id)
-                .flatMap(val -> service.updatePlayerById(playerRequest, val.getId()));
+    public Mono<PlayerServiceResponse> update(PlayerServiceRequest playerRequest, String id) {
+        return service.findById(id)
+                .flatMap(val -> service.update(playerRequest, val.getId()));
     }
 
-    public Mono<Void> deletePlayerById(String id) {
-        return service.findPlayerById(id)
-                .flatMap(val -> service.deletePlayerById(val.getId()));
+    public Mono<Void> delete(String id) {
+        return service.findById(id)
+                .flatMap(val -> service.delete(val.getId()));
     }
 
-    public Mono<PlayerServiceResponse> findPlayerById(String id) {
-        return service.findPlayerById(id);
+    public Mono<PlayerServiceResponse> findById(String id) {
+        return service.findById(id);
     }
 
-    public Flux<PlayerServiceResponse> findAllPlayers() {
-        return service.findAllPlayers();
+    public Flux<PlayerServiceResponse> findAll() {
+        return service.findAll();
     }
 
 }
