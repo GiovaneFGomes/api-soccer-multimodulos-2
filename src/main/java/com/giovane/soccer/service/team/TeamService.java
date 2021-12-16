@@ -21,7 +21,7 @@ public class TeamService {
 
     public Mono<TeamServiceResponse> save(TeamServiceRequest teamRequest) {
         return repository.save(toTeamEntity(teamRequest))
-                .map(TeamServiceResponseMapper::toTeamServiceResponse); // fecha o pipeline com map que contem ja o subscribe()
+                .map(TeamServiceResponseMapper::toTeamServiceResponse);
     }
 
     public Mono<TeamServiceResponse> update(TeamServiceRequest teamRequest, String id) {
