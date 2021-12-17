@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
-	implementation 'org.springframework.cloud:spring-cloud-starter:3.0.4'
+	implementation 'org.springframework.cloud:spring-cloud-starter-config:3.0.5'
 	implementation 'org.springframework.boot:spring-boot-starter-validation:2.6.1'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
