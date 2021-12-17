@@ -30,6 +30,7 @@ public class TeamControllerRequest {
     @Size(min = 3, max = 40, message = "Min 3 and Max 40 characters.")
     private String country;
 
+    // TODO colocar validations
     private List<Player> player;
 
     private LocalDate date;

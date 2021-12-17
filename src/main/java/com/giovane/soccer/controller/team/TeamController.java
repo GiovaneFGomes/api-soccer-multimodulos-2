@@ -23,16 +23,16 @@ public class TeamController {
         return facade.save(teamRequest);
     }
 
-    @ResponseStatus(NOT_FOUND)
+    @ResponseStatus(NO_CONTENT)
     @PutMapping("/{id}")
-    public Mono<TeamControllerResponse> update(@RequestBody @Valid TeamControllerRequest teamRequest, @PathVariable("id") String id) {
-        return facade.update(teamRequest, id);
+    public Mono<TeamControllerResponse> updateById(@RequestBody @Valid TeamControllerRequest teamControllerRequest, @PathVariable("id") String id) {
+        return facade.updateById(teamControllerRequest, id);
     }
 
     @ResponseStatus(NO_CONTENT)
     @DeleteMapping("/{id}")
-    public Mono<Void> delete(@PathVariable("id") String id) {
-       return facade.delete(id);
+    public Mono<Void> deleteById(@PathVariable("id") String id) {
+       return facade.deleteById(id);
     }
 
     @ResponseStatus(OK)
@@ -42,7 +42,7 @@ public class TeamController {
     }
 
     @ResponseStatus(OK)
-    @GetMapping("/findAll")
+    @GetMapping("/findAll") // TODO colocar outro nome -> findAll
     public Flux<TeamControllerResponse> findAll() {
         return facade.findAll();
     }

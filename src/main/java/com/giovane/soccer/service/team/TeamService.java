@@ -1,6 +1,5 @@
 package com.giovane.soccer.service.team;
 
-import com.giovane.soccer.entity.team.Team;
 import com.giovane.soccer.repository.team.TeamRepository;
 import com.giovane.soccer.service.mapper.response.TeamServiceResponseMapper;
 import com.giovane.soccer.service.model.request.TeamServiceRequest;
@@ -19,18 +18,20 @@ public class TeamService {
 
     private final TeamRepository repository;
 
-    public Mono<TeamServiceResponse> save(TeamServiceRequest teamRequest) {
-        return repository.save(toTeamEntity(teamRequest))
+    public Mono<TeamServiceResponse> save(TeamServiceRequest teamServiceRequest) {
+        return repository.save(toTeamEntity(teamServiceRequest))
                 .map(TeamServiceResponseMapper::toTeamServiceResponse);
     }
 
-    public Mono<TeamServiceResponse> update(TeamServiceRequest teamRequest, String id) {
-        teamRequest.setId(id);
-        return repository.save(toTeamEntity(teamRequest))
+    public Mono<TeamServiceResponse> updateById(TeamServiceRequest teamServiceRequest, String id) {
+        teamServiceRequest.setId(id); // TODO arrumar set
+        return repository.save(toTeamEntity(teamServiceRequest))
                 .map(TeamServiceResponseMapper::toTeamServiceResponse);
     }
 
-    public Mono<Void> delete(String id) {
+    // TODO fazer patch
+
+    public Mono<Void> deleteById(String id) {
        return repository.deleteById(id);
     }
 

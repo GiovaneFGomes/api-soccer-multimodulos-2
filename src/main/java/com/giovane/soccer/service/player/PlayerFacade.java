@@ -13,18 +13,18 @@ public class PlayerFacade {
 
     private final PlayerService service;
 
-    public Mono<PlayerServiceResponse> save(PlayerServiceRequest playerResponse) {
-        return service.save(playerResponse);
+    public Mono<PlayerServiceResponse> save(PlayerServiceRequest playerServiceResponse) {
+        return service.save(playerServiceResponse);
     }
 
-    public Mono<PlayerServiceResponse> update(PlayerServiceRequest playerRequest, String id) {
+    public Mono<PlayerServiceResponse> updateById(PlayerServiceRequest playerServiceResponse, String id) {
         return service.findById(id)
-                .flatMap(val -> service.update(playerRequest, val.getId()));
+                .flatMap(val -> service.updateById(playerServiceResponse, val.getId()));
     }
 
-    public Mono<Void> delete(String id) {
+    public Mono<Void> deleteById(String id) {
         return service.findById(id)
-                .flatMap(val -> service.delete(val.getId()));
+                .flatMap(val -> service.deleteById(val.getId()));
     }
 
     public Mono<PlayerServiceResponse> findById(String id) {

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
-public class PlayerControllerRequest {
+public class PlayerControllerRequest {     // TODO colocar validations
     private String id;
     private String name;
     private Integer age;

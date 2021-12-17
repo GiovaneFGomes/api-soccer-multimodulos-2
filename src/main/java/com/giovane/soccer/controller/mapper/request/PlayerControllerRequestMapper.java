@@ -3,10 +3,9 @@ package com.giovane.soccer.controller.mapper.request;
 import com.giovane.soccer.controller.model.request.PlayerControllerRequest;
 import com.giovane.soccer.service.model.request.PlayerServiceRequest;
 
-//@Mapper
 public interface PlayerControllerRequestMapper {
 
-    static PlayerServiceRequest toPlayerService(PlayerControllerRequest playerRequest) {
+    static PlayerServiceRequest toPlayerServiceRequest(PlayerControllerRequest playerRequest) {
         if (playerRequest == null) {
             return null;
         }
@@ -24,15 +23,3 @@ public interface PlayerControllerRequestMapper {
     }
 
 }
-
-/*
-    MAPPER
-
-    static PlayerServiceRequest toPlayerService(PlayerControllerRequest playerRequest){
-            return Mappers.getMapper(PlayerControllerRequestMapper.class)
-                    .mapper(playerRequest);
-        }
-
-        PlayerServiceRequest mapper(PlayerControllerRequest playerRequest);
-
- */

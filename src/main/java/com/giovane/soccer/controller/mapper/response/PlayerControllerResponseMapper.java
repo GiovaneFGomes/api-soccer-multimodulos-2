@@ -3,7 +3,6 @@ package com.giovane.soccer.controller.mapper.response;
 import com.giovane.soccer.service.model.response.PlayerServiceResponse;
 import com.giovane.soccer.controller.model.response.PlayerControllerResponse;
 
-//@Mapper
 public interface PlayerControllerResponseMapper {
 
     static PlayerControllerResponse toPlayerControllerResponse(PlayerServiceResponse playerResponse) {
@@ -24,15 +23,3 @@ public interface PlayerControllerResponseMapper {
     }
 
 }
-
-/*
-    MAPPER
-
-    static PlayerControllerResponse toPlayerControllerResponse(PlayerServiceResponse playerResponse){
-            return Mappers.getMapper(PlayerControllerResponseMapper.class)
-                    .mapper(playerResponse);
-        }
-
-        PlayerControllerResponse mapper(PlayerServiceResponse playerResponse);
-
- */

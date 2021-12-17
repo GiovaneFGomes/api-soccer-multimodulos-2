@@ -13,18 +13,18 @@ public class TeamFacade {
 
     private final TeamService service;
 
-    public Mono<TeamServiceResponse> save(TeamServiceRequest teamRequest) {
-        return service.save(teamRequest);
+    public Mono<TeamServiceResponse> save(TeamServiceRequest teamServiceRequest) {
+        return service.save(teamServiceRequest);
     }
 
-    public Mono<TeamServiceResponse> update(TeamServiceRequest teamRequest, String id) {
+    public Mono<TeamServiceResponse> updateById(TeamServiceRequest teamServiceRequest, String id) {
         return service.findById(id)
-                .flatMap(val -> service.update(teamRequest, val.getId()));
+                .flatMap(val -> service.updateById(teamServiceRequest, val.getId()));
     }
 
-    public Mono<Void> delete(String id) {
+    public Mono<Void> deleteById(String id) {
         return service.findById(id)
-                .flatMap(val -> service.delete(val.getId()));
+                .flatMap(val -> service.deleteById(val.getId()));
     }
 
     public Mono<TeamServiceResponse> findById(String id) {

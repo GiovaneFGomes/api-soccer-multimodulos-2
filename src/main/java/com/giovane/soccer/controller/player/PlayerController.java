@@ -18,20 +18,20 @@ public class PlayerController {
 
     @ResponseStatus(CREATED)
     @PostMapping
-    public Mono<PlayerControllerResponse> save(@RequestBody @Valid PlayerControllerRequest playerRequest) {
-        return facade.save(playerRequest);
+    public Mono<PlayerControllerResponse> save(@RequestBody @Valid PlayerControllerRequest playerControllerRequest) {
+        return facade.save(playerControllerRequest);
     }
 
     @ResponseStatus(NO_CONTENT)
     @PutMapping("/{id}")
-    public Mono<PlayerControllerResponse> update(@RequestBody @Valid PlayerControllerRequest playerRequest, @PathVariable("id") String id) {
-        return facade.update(playerRequest, id);
+    public Mono<PlayerControllerResponse> updateById(@RequestBody @Valid PlayerControllerRequest playerControllerRequest, @PathVariable("id") String id) {
+        return facade.updateById(playerControllerRequest, id);
     }
 
     @ResponseStatus(NO_CONTENT)
     @DeleteMapping("/{id}")
-    public Mono<Void> delete(@PathVariable("id") String id) {
-        return facade.delete(id);
+    public Mono<Void> deleteById(@PathVariable("id") String id) {
+        return facade.deleteById(id);
     }
 
     @ResponseStatus(OK)
