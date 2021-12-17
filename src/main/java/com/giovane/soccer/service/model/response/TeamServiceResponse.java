@@ -14,6 +14,8 @@ public class TeamServiceResponse {
     private String id;
     private String name;
     private String stadium;
+    private String icon;
+    private String bio;
     private String country;
     private List<Player> player;
     private LocalDate date;

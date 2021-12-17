@@ -14,6 +14,8 @@ public interface TeamServiceRequestMapper {
                 .id(teamRequest.getId())
                 .name(teamRequest.getName())
                 .stadium(teamRequest.getStadium())
+                .icon(teamRequest.getIcon())
+                .bio(teamRequest.getBio())
                 .country(teamRequest.getCountry())
                 .player(teamRequest.getPlayer())
                 .date(teamRequest.getDate())

@@ -13,6 +13,8 @@ public class PlayerServiceRequest {
     private String name;
     private Integer age;
     private String nationality;
+    private String icon;
+    private String bio;
     private Team actualTeam;
     private Integer number;
     private Position position;

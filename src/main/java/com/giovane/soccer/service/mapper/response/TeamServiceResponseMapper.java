@@ -14,6 +14,8 @@ public interface TeamServiceResponseMapper {
                 .id(team.getId())
                 .name(team.getName())
                 .stadium(team.getStadium())
+                .icon(team.getIcon())
+                .bio(team.getBio())
                 .country(team.getCountry())
                 .player(team.getPlayer())
                 .date(team.getDate())

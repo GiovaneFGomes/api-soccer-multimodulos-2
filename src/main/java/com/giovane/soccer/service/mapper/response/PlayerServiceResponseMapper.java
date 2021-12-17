@@ -15,6 +15,8 @@ public interface PlayerServiceResponseMapper {
                 .name(player.getName())
                 .age(player.getAge())
                 .nationality(player.getNationality())
+                .icon(player.getIcon())
+                .bio(player.getBio())
                 .actualTeam(player.getActualTeam())
                 .number(player.getNumber())
                 .position(player.getPosition())
