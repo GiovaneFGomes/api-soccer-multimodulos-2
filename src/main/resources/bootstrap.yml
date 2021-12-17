@@ -3,4 +3,4 @@
 spring:
   cloud:
     config:
-      uri: https://github.com/GiovaneFGomes/spring-cloud-config
+      uri: https://github.com/GiovaneFGomes/server

@@ -24,12 +24,10 @@ public class TeamService {
     }
 
     public Mono<TeamServiceResponse> updateById(TeamServiceRequest teamServiceRequest, String id) {
-        teamServiceRequest.setId(id); // TODO arrumar set
+        teamServiceRequest.setId(id);
         return repository.save(toTeamEntity(teamServiceRequest))
                 .map(TeamServiceResponseMapper::toTeamServiceResponse);
     }
-
-    // TODO fazer patch
 
     public Mono<Void> deleteById(String id) {
        return repository.deleteById(id);
