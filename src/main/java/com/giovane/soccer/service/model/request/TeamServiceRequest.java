@@ -1,10 +1,9 @@
 package com.giovane.soccer.service.model.request;
 
-import com.giovane.soccer.entity.player.Player;
 import lombok.*;
-
-import java.time.LocalDate;
 import java.util.List;
+import java.time.LocalDate;
+import com.giovane.soccer.entity.player.Player;
 
 @AllArgsConstructor
 @NoArgsConstructor

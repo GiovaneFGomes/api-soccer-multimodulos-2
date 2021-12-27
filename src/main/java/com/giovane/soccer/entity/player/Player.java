@@ -1,10 +1,10 @@
 package com.giovane.soccer.entity.player;
 
 import lombok.*;
-import com.giovane.soccer.commons.Position;
 import com.giovane.soccer.entity.team.Team;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.giovane.soccer.commons.Position;
+import org.springframework.data.annotation.*;
+import org.springframework.data.mongodb.core.mapping.*;
 
 @AllArgsConstructor
 @NoArgsConstructor

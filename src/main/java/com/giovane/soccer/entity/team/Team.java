@@ -3,9 +3,9 @@ package com.giovane.soccer.entity.team;
 import lombok.*;
 import java.util.List;
 import java.time.LocalDate;
+import org.springframework.data.annotation.*;
 import com.giovane.soccer.entity.player.Player;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.*;
 
 @AllArgsConstructor
 @NoArgsConstructor

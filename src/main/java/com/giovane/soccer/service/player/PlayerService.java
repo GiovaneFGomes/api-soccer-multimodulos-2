@@ -1,16 +1,16 @@
 package com.giovane.soccer.service.player;
 
-import com.giovane.soccer.service.mapper.response.PlayerServiceResponseMapper;
-import com.giovane.soccer.service.model.request.PlayerServiceRequest;
-import com.giovane.soccer.service.model.response.PlayerServiceResponse;
 import lombok.*;
-import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import org.springframework.stereotype.*;
 import com.giovane.soccer.repository.player.PlayerRepository;
+import org.springframework.web.server.ResponseStatusException;
+import com.giovane.soccer.service.model.request.PlayerServiceRequest;
+import com.giovane.soccer.service.model.response.PlayerServiceResponse;
+import com.giovane.soccer.service.mapper.response.PlayerServiceResponseMapper;
+import static org.springframework.http.HttpStatus.*;
 import static com.giovane.soccer.service.mapper.request.PlayerServiceRequestMapper.toPlayerEntity;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @AllArgsConstructor
 @Service
@@ -24,7 +24,7 @@ public class PlayerService {
     }
 
     public Mono<PlayerServiceResponse> updateById(PlayerServiceRequest playerServiceRequest, String id) {
-        playerServiceRequest.setId(id); // TODO arrumar set
+        playerServiceRequest.setId(id);
         return repository.save(toPlayerEntity(playerServiceRequest))
                 .map(PlayerServiceResponseMapper::toPlayerServiceResponse);
     }

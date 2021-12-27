@@ -5,9 +5,9 @@ import javax.validation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import org.springframework.web.bind.annotation.*;
-import static org.springframework.http.HttpStatus.*;
 import com.giovane.soccer.controller.model.request.PlayerControllerRequest;
 import com.giovane.soccer.controller.model.response.PlayerControllerResponse;
+import static org.springframework.http.HttpStatus.*;
 
 @AllArgsConstructor
 @RestController
@@ -45,4 +45,5 @@ public class PlayerController {
     public Flux<PlayerControllerResponse> findAll() {
         return facade.findAll();
     }
+
 }

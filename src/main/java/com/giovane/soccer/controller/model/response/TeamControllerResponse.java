@@ -1,13 +1,9 @@
 package com.giovane.soccer.controller.model.response;
 
-import com.giovane.soccer.entity.player.Player;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
+import lombok.*;
 import java.util.List;
+import java.time.LocalDate;
+import com.giovane.soccer.entity.player.Player;
 
 @AllArgsConstructor
 @NoArgsConstructor

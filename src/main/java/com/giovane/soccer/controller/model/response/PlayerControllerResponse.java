@@ -1,11 +1,8 @@
 package com.giovane.soccer.controller.model.response;
 
+import lombok.*;
 import com.giovane.soccer.entity.team.Team;
 import com.giovane.soccer.commons.Position;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor

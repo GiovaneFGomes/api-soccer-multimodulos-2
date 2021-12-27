@@ -1,13 +1,9 @@
 package com.giovane.soccer.controller.model.request;
 
+import lombok.*;
+import javax.validation.constraints.*;
 import com.giovane.soccer.entity.team.Team;
 import com.giovane.soccer.commons.Position;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,9 +20,16 @@ public class PlayerControllerRequest {
     @Size(min = 1, max = 100, message = "Min 1 and Max 100 characters.")
     private String nationality;
 
+    @NotNull
     private Integer age;
+
     private Team actualTeam;
+
+    @NotNull
     private Integer number;
+
     private Position position;
+
+    @NotNull
     private Double height;
 }

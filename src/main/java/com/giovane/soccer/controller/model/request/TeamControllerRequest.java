@@ -1,14 +1,10 @@
 package com.giovane.soccer.controller.model.request;
 
-import com.giovane.soccer.entity.player.Player;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-import java.time.LocalDate;
+import lombok.*;
 import java.util.List;
+import java.time.LocalDate;
+import javax.validation.constraints.*;
+import com.giovane.soccer.entity.player.Player;
 
 @AllArgsConstructor
 @NoArgsConstructor
