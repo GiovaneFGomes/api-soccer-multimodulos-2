@@ -13,14 +13,14 @@ public interface PlayerServiceRequestMapper {
         return Player.builder()
                 .id(playerRequest.getId())
                 .name(playerRequest.getName())
-                .age(playerRequest.getAge())
-                .nationality(playerRequest.getNationality())
                 .icon(playerRequest.getIcon())
                 .bio(playerRequest.getBio())
-                .actualTeam(playerRequest.getActualTeam())
+                .age(playerRequest.getAge())
                 .number(playerRequest.getNumber())
                 .position(playerRequest.getPosition())
                 .height(playerRequest.getHeight())
+                .nationality(playerRequest.getNationality())
+                .currentTeam(playerRequest.getCurrentTeam())
                 .build();
     }
 

@@ -11,12 +11,12 @@ import com.giovane.soccer.entity.team.Team;
 public class PlayerServiceResponse {
     private String id;
     private String name;
-    private Integer age;
-    private String nationality;
     private String icon;
     private String bio;
-    private Team actualTeam;
+    private Integer age;
     private Integer number;
     private Position position;
     private Double height;
+    private String nationality;
+    private Team currentTeam;
 }

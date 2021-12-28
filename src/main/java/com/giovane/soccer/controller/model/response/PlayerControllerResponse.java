@@ -11,10 +11,12 @@ import com.giovane.soccer.commons.Position;
 public class PlayerControllerResponse {
     private String id;
     private String name;
+    private String icon;
+    private String bio;
     private Integer age;
-    private String nationality;
-    private Team actualTeam;
     private Integer number;
     private Position position;
     private Double height;
+    private String nationality;
+    private Team currentTeam;
 }

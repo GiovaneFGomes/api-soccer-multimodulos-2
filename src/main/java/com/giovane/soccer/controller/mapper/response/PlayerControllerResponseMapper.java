@@ -13,12 +13,14 @@ public interface PlayerControllerResponseMapper {
         return PlayerControllerResponse.builder()
                 .id(playerResponse.getId())
                 .name(playerResponse.getName())
+                .icon(playerResponse.getIcon())
+                .bio(playerResponse.getBio())
                 .age(playerResponse.getAge())
-                .nationality(playerResponse.getNationality())
-                .actualTeam(playerResponse.getActualTeam())
                 .number(playerResponse.getNumber())
                 .position(playerResponse.getPosition())
                 .height(playerResponse.getHeight())
+                .nationality(playerResponse.getNationality())
+                .currentTeam(playerResponse.getCurrentTeam())
                 .build();
     }
 
