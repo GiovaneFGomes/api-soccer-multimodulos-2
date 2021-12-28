@@ -12,10 +12,14 @@ import com.giovane.soccer.entity.player.Player;
 public class TeamServiceRequest {
     private String id;
     private String name;
-    private String stadium;
     private String icon;
     private String bio;
+    private String founded;
+    private String stadium;
+    private String capacity;
     private String country;
+    private String manager;
+    private String president;
     private List<Player> player;
     private LocalDate date;
 }

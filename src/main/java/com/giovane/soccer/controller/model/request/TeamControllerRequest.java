@@ -14,20 +14,44 @@ public class TeamControllerRequest {
 
     private String id;
 
-    @NotBlank
-    @Size(min = 3, max = 40, message = "Min 3 and Max 40 characters.")
+    @NotBlank(message = "Name should not be blank.")
+    @Size(min = 2, max = 100, message = "Min 2 and Max 100 characters.")
     private String name;
 
-    @NotBlank
-    @Size(min = 3, max = 40, message = "Min 3 and Max 40 characters.")
+    @NotBlank(message = "Icon should not be blank.")
+    private String icon;
+
+    @NotBlank(message = "Biography should not be blank.")
+    @Size(min = 50, max = 500, message = "Min 50 and Max 500 characters.")
+    private String bio;
+
+    @NotBlank(message = "Founded should not be blank.")
+    @Size(min = 2, max = 100, message = "Min 2 and Max 100 characters.")
+    private String founded;
+
+    @NotBlank(message = "Stadium should not be blank.")
+    @Size(min = 2, max = 100, message = "Min 2 and Max 100 characters.")
     private String stadium;
 
-    @NotBlank
-    @Size(min = 3, max = 40, message = "Min 3 and Max 40 characters.")
+    @NotBlank(message = "Capacity should not be blank.")
+    @Size(min = 3, max = 8, message = "Min 3 and Max 8 characters")
+    private String capacity;
+
+    @NotBlank(message = "Country should not be blank.")
+    @Size(min = 2, max = 100, message = "Min 3 and Max 100 characters.")
     private String country;
 
+    @NotBlank(message = "Manager should not be blank.")
+    @Size(min = 2, max = 100, message = "Min 2 and Max 100 characters.")
+    private String manager;
+
+    @NotBlank(message = "President should not be blank.")
+    @Size(min = 2, max = 100, message = "Min 2 and Max 100 characters.")
+    private String president;
+
+    @NotEmpty(message = "The list of players should not be empty.")
     private List<Player> player;
 
+    @NotBlank(message = "Date should not be blank.")
     private LocalDate date;
-
 }

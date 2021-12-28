@@ -1,7 +1,6 @@
 # CONFIG SERVER
 
 spring:
-  application:
-    name: soccer
-  config:
-    import: optional:configserver:https://github.com/GiovaneFGomes/server
+  cloud:
+    config:
+      uri: https://github.com/GiovaneFGomes/server
