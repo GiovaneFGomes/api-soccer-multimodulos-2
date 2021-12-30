@@ -23,8 +23,9 @@ public class PlayerController {
     }
 
     @ResponseStatus(NO_CONTENT)
-    @PutMapping("/{id}")
-    public Mono<PlayerControllerResponse> updateById(@RequestBody @Valid PlayerControllerRequest playerControllerRequest, @PathVariable("id") String id) {
+    @PutMapping("/{id}")   // TODO mudar update pra Void
+    public Mono<PlayerControllerResponse> updateById(@RequestBody @Valid PlayerControllerRequest playerControllerRequest
+                                                   , @PathVariable("id") String id) {
         return facade.updateById(playerControllerRequest, id);
     }
 

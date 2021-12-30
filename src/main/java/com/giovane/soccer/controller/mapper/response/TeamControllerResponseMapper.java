@@ -5,24 +5,24 @@ import com.giovane.soccer.service.model.response.TeamServiceResponse;
 
 public interface TeamControllerResponseMapper {
 
-    static TeamControllerResponse toTeamControllerResponse(TeamServiceResponse teamResponse) {
-        if (teamResponse == null) {
+    static TeamControllerResponse toTeamControllerResponse(TeamServiceResponse teamServiceResponse) {
+        if (teamServiceResponse == null) {
             return null;
         }
 
         return TeamControllerResponse.builder()
-                .id(teamResponse.getId())
-                .name(teamResponse.getName())
-                .icon(teamResponse.getIcon())
-                .bio(teamResponse.getBio())
-                .founded(teamResponse.getFounded())
-                .stadium(teamResponse.getStadium())
-                .capacity(teamResponse.getCapacity())
-                .country(teamResponse.getCountry())
-                .manager(teamResponse.getManager())
-                .president(teamResponse.getPresident())
-                .player(teamResponse.getPlayer())
-                .date(teamResponse.getDate())
+                .id(teamServiceResponse.getId())
+                .name(teamServiceResponse.getName())
+                .icon(teamServiceResponse.getIcon())
+                .bio(teamServiceResponse.getBio())
+                .founded(teamServiceResponse.getFounded())
+                .stadium(teamServiceResponse.getStadium())
+                .capacity(teamServiceResponse.getCapacity())
+                .country(teamServiceResponse.getCountry())
+                .manager(teamServiceResponse.getManager())
+                .president(teamServiceResponse.getPresident())
+                .player(teamServiceResponse.getPlayer())
+                .date(teamServiceResponse.getDate())
                 .build();
     }
 

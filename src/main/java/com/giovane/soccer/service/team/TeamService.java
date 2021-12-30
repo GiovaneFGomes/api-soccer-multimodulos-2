@@ -1,6 +1,5 @@
 package com.giovane.soccer.service.team;
 
-import com.giovane.soccer.entity.team.Team;
 import lombok.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -25,20 +24,20 @@ public class TeamService {
     }
 
     public Mono<TeamServiceResponse> updateById(TeamServiceRequest teamServiceRequest, String id) {
-        teamServiceRequest.setId(id);
+        teamServiceRequest.setId(id); // TODO arrumar set
         return repository.save(toTeamEntity(teamServiceRequest))
                 .map(TeamServiceResponseMapper::toTeamServiceResponse);
     }
 
-    public Mono<TeamServiceResponse> patchTeamByPlayer(String idTeam, String idPlayer) {
-        return repository
+//    public Mono<TeamServiceResponse> patchTeamByPlayer(String idTeam, String idPlayer) {
+//        return repository
 //        return repository.findById(idTeam)
 //                .switchIfEmpty(Mono.error(new ResponseStatusException(NOT_FOUND, "ID not found")))
 //                .flatMap(val -> repository.findById(idPlayer)
 //                        .switchIfEmpty(Mono.error(new ResponseStatusException(NOT_FOUND, "ID not found")))
 //                        .then(val.getPlayer().add(idPlayer)));
-
-    }
+//
+//    }
 
     public Mono<Void> deleteById(String id) {
        return repository.deleteById(id);
@@ -52,6 +51,7 @@ public class TeamService {
 
     public Flux<TeamServiceResponse> findAll() {
         return repository.findAll()
+                //.switchIfEmpty(Mono.error(new ResponseStatusException(NOT_FOUND, "ID not found")))
                 .map(TeamServiceResponseMapper::toTeamServiceResponse);
     }
 

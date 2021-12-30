@@ -5,24 +5,24 @@ import com.giovane.soccer.service.model.request.TeamServiceRequest;
 
 public interface TeamServiceRequestMapper {
 
-    static Team toTeamEntity(TeamServiceRequest teamRequest) {
-        if (teamRequest == null) {
+    static Team toTeamEntity(TeamServiceRequest teamServiceRequest) {
+        if (teamServiceRequest == null) {
             return null;
         }
 
         return Team.builder()
-                .id(teamRequest.getId())
-                .name(teamRequest.getName())
-                .icon(teamRequest.getIcon())
-                .bio(teamRequest.getBio())
-                .founded(teamRequest.getFounded())
-                .stadium(teamRequest.getStadium())
-                .capacity(teamRequest.getCapacity())
-                .country(teamRequest.getCountry())
-                .manager(teamRequest.getManager())
-                .president(teamRequest.getPresident())
-                .player(teamRequest.getPlayer())
-                .date(teamRequest.getDate())
+                .id(teamServiceRequest.getId())
+                .name(teamServiceRequest.getName())
+                .icon(teamServiceRequest.getIcon())
+                .bio(teamServiceRequest.getBio())
+                .founded(teamServiceRequest.getFounded())
+                .stadium(teamServiceRequest.getStadium())
+                .capacity(teamServiceRequest.getCapacity())
+                .country(teamServiceRequest.getCountry())
+                .manager(teamServiceRequest.getManager())
+                .president(teamServiceRequest.getPresident())
+                .player(teamServiceRequest.getPlayer())
+                .date(teamServiceRequest.getDate())
                 .build();
     }
 
