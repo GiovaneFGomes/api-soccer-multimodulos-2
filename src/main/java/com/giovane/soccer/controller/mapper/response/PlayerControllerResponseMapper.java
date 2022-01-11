@@ -5,22 +5,22 @@ import com.giovane.soccer.controller.model.response.PlayerControllerResponse;
 
 public interface PlayerControllerResponseMapper {
 
-    static PlayerControllerResponse toPlayerControllerResponse(PlayerServiceResponse playerResponse) {
-        if (playerResponse == null) {
+    static PlayerControllerResponse toPlayerControllerResponse(PlayerServiceResponse playerServiceResponse) {
+        if (playerServiceResponse == null) {
             return null;
         }
 
         return PlayerControllerResponse.builder()
-                .id(playerResponse.getId())
-                .name(playerResponse.getName())
-                .icon(playerResponse.getIcon())
-                .bio(playerResponse.getBio())
-                .age(playerResponse.getAge())
-                .number(playerResponse.getNumber())
-                .position(playerResponse.getPosition())
-                .height(playerResponse.getHeight())
-                .nationality(playerResponse.getNationality())
-                .currentTeam(playerResponse.getCurrentTeam())
+                .id(playerServiceResponse.getId())
+                .name(playerServiceResponse.getName())
+                .icon(playerServiceResponse.getIcon())
+                .bio(playerServiceResponse.getBio())
+                .age(playerServiceResponse.getAge())
+                .number(playerServiceResponse.getNumber())
+                .position(playerServiceResponse.getPosition())
+                .height(playerServiceResponse.getHeight())
+                .nationality(playerServiceResponse.getNationality())
+                .currentTeam(playerServiceResponse.getCurrentTeam())
                 .build();
     }
 

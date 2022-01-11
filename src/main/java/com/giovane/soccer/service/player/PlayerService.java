@@ -24,7 +24,7 @@ public class PlayerService {
     }
 
     public Mono<PlayerServiceResponse> updateById(PlayerServiceRequest playerServiceRequest, String id) {
-        playerServiceRequest.setId(id);
+        playerServiceRequest.setId(id); // TODO arrumar set pra controller
         return repository.save(toPlayerEntity(playerServiceRequest))
                 .map(PlayerServiceResponseMapper::toPlayerServiceResponse);
     }

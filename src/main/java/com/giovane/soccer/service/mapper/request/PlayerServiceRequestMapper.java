@@ -5,22 +5,22 @@ import com.giovane.soccer.service.model.request.PlayerServiceRequest;
 
 public interface PlayerServiceRequestMapper {
 
-    static Player toPlayerEntity(PlayerServiceRequest playerRequest) {
-        if (playerRequest == null) {
+    static Player toPlayerEntity(PlayerServiceRequest playerServiceRequest) {
+        if (playerServiceRequest == null) {
             return null;
         }
 
         return Player.builder()
-                .id(playerRequest.getId())
-                .name(playerRequest.getName())
-                .icon(playerRequest.getIcon())
-                .bio(playerRequest.getBio())
-                .age(playerRequest.getAge())
-                .number(playerRequest.getNumber())
-                .position(playerRequest.getPosition())
-                .height(playerRequest.getHeight())
-                .nationality(playerRequest.getNationality())
-                .currentTeam(playerRequest.getCurrentTeam())
+                .id(playerServiceRequest.getId())
+                .name(playerServiceRequest.getName())
+                .icon(playerServiceRequest.getIcon())
+                .bio(playerServiceRequest.getBio())
+                .age(playerServiceRequest.getAge())
+                .number(playerServiceRequest.getNumber())
+                .position(playerServiceRequest.getPosition())
+                .height(playerServiceRequest.getHeight())
+                .nationality(playerServiceRequest.getNationality())
+                .currentTeam(playerServiceRequest.getCurrentTeam())
                 .build();
     }
 
