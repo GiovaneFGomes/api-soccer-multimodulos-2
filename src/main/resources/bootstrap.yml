@@ -1,6 +1,0 @@
-# CONFIG SERVER
-
-spring:
-  cloud:
-    config:
-      uri: https://github.com/GiovaneFGomes/server

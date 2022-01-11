@@ -1,0 +1,7 @@
+spring:
+#  profiles:
+#    active: hml
+  config:
+    import: optional:configserver:http://localhost:9028/config-server
+  application:
+    name: soccer
