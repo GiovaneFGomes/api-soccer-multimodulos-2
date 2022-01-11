@@ -51,7 +51,6 @@ public class TeamService {
 
     public Flux<TeamServiceResponse> findAll() {
         return repository.findAll()
-                //.switchIfEmpty(Mono.error(new ResponseStatusException(NOT_FOUND, "ID not found")))
                 .map(TeamServiceResponseMapper::toTeamServiceResponse);
     }
 

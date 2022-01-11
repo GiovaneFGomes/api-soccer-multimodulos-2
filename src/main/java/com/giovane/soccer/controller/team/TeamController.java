@@ -24,7 +24,8 @@ public class TeamController {
 
     @ResponseStatus(NO_CONTENT)
     @PutMapping("/{id}")
-    public Mono<TeamControllerResponse> updateById(@RequestBody @Valid TeamControllerRequest teamControllerRequest, @PathVariable("id") String id) {
+    public Mono<TeamControllerResponse> updateById(@RequestBody @Valid TeamControllerRequest teamControllerRequest
+                                                  ,@PathVariable("id") String id) {
         return facade.updateById(teamControllerRequest, id);
     }
 
