@@ -24,20 +24,10 @@ public class TeamService {
     }
 
     public Mono<TeamServiceResponse> updateById(TeamServiceRequest teamServiceRequest, String id) {
-        teamServiceRequest.setId(id); // TODO arrumar set
+        teamServiceRequest.setId(id);
         return repository.save(toTeamEntity(teamServiceRequest))
                 .map(TeamServiceResponseMapper::toTeamServiceResponse);
     }
-
-//    public Mono<TeamServiceResponse> patchTeamByPlayer(String idTeam, String idPlayer) {
-//        return repository
-//        return repository.findById(idTeam)
-//                .switchIfEmpty(Mono.error(new ResponseStatusException(NOT_FOUND, "ID not found")))
-//                .flatMap(val -> repository.findById(idPlayer)
-//                        .switchIfEmpty(Mono.error(new ResponseStatusException(NOT_FOUND, "ID not found")))
-//                        .then(val.getPlayer().add(idPlayer)));
-//
-//    }
 
     public Mono<Void> deleteById(String id) {
        return repository.deleteById(id);

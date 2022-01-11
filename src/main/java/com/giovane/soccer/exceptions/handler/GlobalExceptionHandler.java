@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpServerErrorException.InternalServerError;
 import reactor.core.publisher.Mono;
-
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.List;
