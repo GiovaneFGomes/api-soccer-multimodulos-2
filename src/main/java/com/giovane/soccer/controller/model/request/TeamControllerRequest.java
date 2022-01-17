@@ -49,9 +49,9 @@ public class TeamControllerRequest {
     @Size(max = 100, message = "Max 100 characters.")
     private String president;
 
-    @NotEmpty(message = "The list of players should not be empty.")
+//    @NotEmpty(message = "The list of players should not be empty.")
     private List<Player> player;
 
-    @NotBlank(message = "Date should not be blank.")
+//    @NotBlank(message = "Date should not be blank.")
     private LocalDate date;
 }

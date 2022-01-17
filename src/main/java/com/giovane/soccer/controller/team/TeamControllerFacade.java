@@ -8,7 +8,9 @@ import com.giovane.soccer.service.team.TeamFacade;
 import com.giovane.soccer.controller.model.request.TeamControllerRequest;
 import com.giovane.soccer.controller.model.response.TeamControllerResponse;
 import com.giovane.soccer.controller.mapper.response.TeamControllerResponseMapper;
-import static com.giovane.soccer.controller.mapper.request.TeamControllerRequestMapper.toTeamServiceRequest;
+
+import static com.giovane.soccer.controller.mapper.request.TeamControllerRequestMapper.toTeamEntityWithId;
+import static com.giovane.soccer.controller.mapper.request.TeamControllerRequestMapper.toTeamEntityWithoutId;
 
 @AllArgsConstructor
 @Component
@@ -17,12 +19,12 @@ public class TeamControllerFacade {
     private final TeamFacade facade;
 
     public Mono<TeamControllerResponse> save(TeamControllerRequest teamControllerRequest) {
-        return facade.save(toTeamServiceRequest(teamControllerRequest))
+        return facade.save(toTeamEntityWithoutId(teamControllerRequest))
                 .map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
     public Mono<TeamControllerResponse> updateById(TeamControllerRequest teamControllerRequest, String id) {
-        return facade.updateById(toTeamServiceRequest(teamControllerRequest), id)
+        return facade.updateById(toTeamEntityWithId(teamControllerRequest, id))
                 .map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
@@ -40,4 +42,7 @@ public class TeamControllerFacade {
                 .map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
+    public Mono<TeamControllerResponse> addPlayer(String id, String playerId) {
+        return null;
+    }
 }
