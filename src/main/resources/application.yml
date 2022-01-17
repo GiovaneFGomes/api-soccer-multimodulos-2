@@ -1,0 +1,14 @@
+spring:
+  config:
+    import: optional:configserver:http://localhost:9028/config-server
+  application:
+    name: soccer
+logging:
+  level:
+    root:
+      debug
+
+
+# Profile
+#spring.profiles.active=hml
+#spring.cloud.config.profile=hml
