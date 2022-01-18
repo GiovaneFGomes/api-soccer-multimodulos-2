@@ -1,26 +1,23 @@
 package com.giovane.soccer.controller.mapper.response;
 
-import com.giovane.soccer.service.model.response.PlayerServiceResponse;
+import com.giovane.soccer.entity.player.Player;
 import com.giovane.soccer.controller.model.response.PlayerControllerResponse;
 
 public interface PlayerControllerResponseMapper {
 
-    static PlayerControllerResponse toPlayerControllerResponse(PlayerServiceResponse playerServiceResponse) {
-        if (playerServiceResponse == null) {
-            return null;
-        }
+    static PlayerControllerResponse toPlayerControllerResponse(Player player) {
 
         return PlayerControllerResponse.builder()
-                .id(playerServiceResponse.getId())
-                .name(playerServiceResponse.getName())
-                .icon(playerServiceResponse.getIcon())
-                .bio(playerServiceResponse.getBio())
-                .age(playerServiceResponse.getAge())
-                .number(playerServiceResponse.getNumber())
-                .position(playerServiceResponse.getPosition())
-                .height(playerServiceResponse.getHeight())
-                .nationality(playerServiceResponse.getNationality())
-                .currentTeam(playerServiceResponse.getCurrentTeam())
+                .id(player.getId())
+                .name(player.getName())
+                .icon(player.getIcon())
+                .bio(player.getBio())
+                .age(player.getAge())
+                .number(player.getNumber())
+                .position(player.getPosition())
+                .height(player.getHeight())
+                .nationality(player.getNationality())
+                .currentTeam(player.getCurrentTeam())
                 .build();
     }
 

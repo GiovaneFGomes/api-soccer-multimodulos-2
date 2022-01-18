@@ -8,7 +8,8 @@ import com.giovane.soccer.service.player.PlayerFacade;
 import com.giovane.soccer.controller.model.request.PlayerControllerRequest;
 import com.giovane.soccer.controller.model.response.PlayerControllerResponse;
 import com.giovane.soccer.controller.mapper.response.PlayerControllerResponseMapper;
-import static com.giovane.soccer.controller.mapper.request.PlayerControllerRequestMapper.toPlayerServiceRequest;
+import static com.giovane.soccer.controller.mapper.request.PlayerControllerRequestMapper.toPlayerEntityWithId;
+import static com.giovane.soccer.controller.mapper.request.PlayerControllerRequestMapper.toPlayerEntityWithoutId;
 
 @AllArgsConstructor
 @Component
@@ -17,12 +18,12 @@ public class PlayerControllerFacade {
     private final PlayerFacade facade;
 
     public Mono<PlayerControllerResponse> save(PlayerControllerRequest playerControllerRequest) {
-        return facade.save(toPlayerServiceRequest(playerControllerRequest))
+        return facade.save(toPlayerEntityWithoutId(playerControllerRequest))
                 .map(PlayerControllerResponseMapper::toPlayerControllerResponse);
     }
 
-    public Mono<PlayerControllerResponse> updateById(PlayerControllerRequest playerControllerRequest, String id) {
-        return facade.updateById(toPlayerServiceRequest(playerControllerRequest), id)
+    public Mono<PlayerControllerResponse> update(PlayerControllerRequest playerControllerRequest, String id) {
+        return facade.update(toPlayerEntityWithId(playerControllerRequest, id))
                 .map(PlayerControllerResponseMapper::toPlayerControllerResponse);
     }
 

@@ -7,11 +7,7 @@ import reactor.core.publisher.Mono;
 import org.springframework.stereotype.*;
 import com.giovane.soccer.repository.team.TeamRepository;
 import org.springframework.web.server.ResponseStatusException;
-import com.giovane.soccer.service.model.request.TeamServiceRequest;
-import com.giovane.soccer.service.model.response.TeamServiceResponse;
-import com.giovane.soccer.service.mapper.response.TeamServiceResponseMapper;
 import static org.springframework.http.HttpStatus.*;
-import static com.giovane.soccer.service.mapper.request.TeamServiceRequestMapper.toTeamEntity;
 
 @AllArgsConstructor
 @Service
@@ -23,7 +19,7 @@ public class TeamService {
         return repository.save(team);
     }
 
-    public Mono<Team> updateById(Team team) {
+    public Mono<Team> update(Team team) {
         return repository.save(team);
     }
 

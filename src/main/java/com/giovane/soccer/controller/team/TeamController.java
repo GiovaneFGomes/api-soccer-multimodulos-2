@@ -18,37 +18,37 @@ public class TeamController {
 
     @ResponseStatus(CREATED)
     @PostMapping
-    public Mono<TeamControllerResponse> save(@RequestBody @Valid TeamControllerRequest teamRequest) {
-        return facade.save(teamRequest);
+    public Mono<TeamControllerResponse> save(@RequestBody @Valid TeamControllerRequest teamControllerRequest) {
+        return facade.save(teamControllerRequest);
     }
 
     @ResponseStatus(NO_CONTENT)
     @PutMapping("/{id}")
-    public Mono<TeamControllerResponse> updateById(@RequestBody @Valid TeamControllerRequest teamControllerRequest
-                                                  ,@PathVariable("id") String id) {
-        return facade.updateById(teamControllerRequest, id);
+    public Mono<TeamControllerResponse> update(@RequestBody @Valid TeamControllerRequest teamControllerRequest
+                                              ,@PathVariable String id) {
+        return facade.update(teamControllerRequest, id);
     }
 
-    @ResponseStatus(OK)
-    @PatchMapping("/{id}/player/{playerId}")
-    public Mono<TeamControllerResponse> addPlayer(@PathVariable("id") String id, @PathVariable String playerId) {
-        return facade.addPlayer(id, playerId);
-    }
+//    @ResponseStatus(OK)
+//    @PatchMapping("/{id}/player/{playerId}")
+//    public Mono<TeamControllerResponse> addPlayer(@PathVariable("id") String id, @PathVariable String playerId) {
+//        return facade.addPlayer(id, playerId);
+//    }
 
     @ResponseStatus(NO_CONTENT)
     @DeleteMapping("/{id}")
-    public Mono<Void> deleteById(@PathVariable("id") String id) {
+    public Mono<Void> deleteById(@PathVariable String id) {
        return facade.deleteById(id);
     }
 
     @ResponseStatus(OK)
     @GetMapping("/{id}")
-    public Mono<TeamControllerResponse> findById(@PathVariable("id") String id) {
+    public Mono<TeamControllerResponse> findById(@PathVariable String id) {
         return facade.findById(id);
     }
 
     @ResponseStatus(OK)
-    @GetMapping()
+    @GetMapping
     public Flux<TeamControllerResponse> findAll() {
         return facade.findAll();
     }

@@ -24,25 +24,25 @@ public class PlayerController {
 
     @ResponseStatus(NO_CONTENT)
     @PutMapping("/{id}")
-    public Mono<PlayerControllerResponse> updateById(@RequestBody @Valid PlayerControllerRequest playerControllerRequest
-                                                    ,@PathVariable("id") String id) {
-        return facade.updateById(playerControllerRequest, id);
+    public Mono<PlayerControllerResponse> update(@RequestBody @Valid PlayerControllerRequest playerControllerRequest
+                                                ,@PathVariable String id) {
+        return facade.update(playerControllerRequest, id);
     }
 
     @ResponseStatus(NO_CONTENT)
     @DeleteMapping("/{id}")
-    public Mono<Void> deleteById(@PathVariable("id") String id) {
+    public Mono<Void> deleteById(@PathVariable String id) {
         return facade.deleteById(id);
     }
 
     @ResponseStatus(OK)
     @GetMapping("/{id}")
-    public Mono<PlayerControllerResponse> findById(@PathVariable("id") String id) {
+    public Mono<PlayerControllerResponse> findById(@PathVariable String id) {
         return facade.findById(id);
     }
 
     @ResponseStatus(OK)
-    @GetMapping("/findAll")
+    @GetMapping
     public Flux<PlayerControllerResponse> findAll() {
         return facade.findAll();
     }

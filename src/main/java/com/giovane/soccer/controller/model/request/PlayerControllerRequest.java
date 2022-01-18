@@ -26,24 +26,17 @@ public class PlayerControllerRequest {
     @Size(max = 500, message = "Max 500 characters.")
     private String bio;
 
-    @NotEmpty(message = "Age should not be empty.")
     private Integer age;
 
-    // Coloquei @NotBlank, pois se o player não tiver time
-    // tambem nao tera numero. Aí se nao tiver time colocar ---
-    @NotBlank(message = "Number should not be empty.")
     private Integer number;
 
-    @NotEmpty(message = "Position should not be empty.")
     private Position position;
 
-    @NotEmpty(message = "Height should not be empty.")
     private Double height;
 
     @NotBlank(message = "Nationality should not be blank.")
     @Size(max = 25, message = "Max 25 characters.")
     private String nationality;
 
-    @NotBlank(message = "Current team should not be blank.")
     private Team currentTeam;
 }

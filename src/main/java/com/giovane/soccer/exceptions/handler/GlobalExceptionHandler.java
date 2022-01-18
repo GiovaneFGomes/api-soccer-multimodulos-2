@@ -32,7 +32,6 @@ public class GlobalExceptionHandler {
                 .build());
     }
 
-
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(BAD_REQUEST)
     public Mono<ExceptionMethodNotValidDetails> handlerMethodNotValid(MethodArgumentNotValidException e){

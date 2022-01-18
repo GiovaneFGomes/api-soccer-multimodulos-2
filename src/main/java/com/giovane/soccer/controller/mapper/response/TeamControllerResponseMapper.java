@@ -2,7 +2,6 @@ package com.giovane.soccer.controller.mapper.response;
 
 import com.giovane.soccer.controller.model.response.TeamControllerResponse;
 import com.giovane.soccer.entity.team.Team;
-import com.giovane.soccer.service.model.response.TeamServiceResponse;
 
 public interface TeamControllerResponseMapper {
 

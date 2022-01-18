@@ -8,7 +8,6 @@ import com.giovane.soccer.service.team.TeamFacade;
 import com.giovane.soccer.controller.model.request.TeamControllerRequest;
 import com.giovane.soccer.controller.model.response.TeamControllerResponse;
 import com.giovane.soccer.controller.mapper.response.TeamControllerResponseMapper;
-
 import static com.giovane.soccer.controller.mapper.request.TeamControllerRequestMapper.toTeamEntityWithId;
 import static com.giovane.soccer.controller.mapper.request.TeamControllerRequestMapper.toTeamEntityWithoutId;
 
@@ -23,10 +22,14 @@ public class TeamControllerFacade {
                 .map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
-    public Mono<TeamControllerResponse> updateById(TeamControllerRequest teamControllerRequest, String id) {
-        return facade.updateById(toTeamEntityWithId(teamControllerRequest, id))
+    public Mono<TeamControllerResponse> update(TeamControllerRequest teamControllerRequest, String id) {
+        return facade.update(toTeamEntityWithId(teamControllerRequest, id))
                 .map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
+
+//    public Mono<TeamControllerResponse> addPlayer(String id, String playerId) {
+//        return null;
+//    }
 
     public Mono<Void> deleteById(String id) {
         return facade.deleteById(id);
@@ -42,7 +45,4 @@ public class TeamControllerFacade {
                 .map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
-    public Mono<TeamControllerResponse> addPlayer(String id, String playerId) {
-        return null;
-    }
 }

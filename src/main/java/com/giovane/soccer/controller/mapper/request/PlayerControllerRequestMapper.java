@@ -1,17 +1,29 @@
 package com.giovane.soccer.controller.mapper.request;
 
 import com.giovane.soccer.controller.model.request.PlayerControllerRequest;
-import com.giovane.soccer.service.model.request.PlayerServiceRequest;
+import com.giovane.soccer.entity.player.Player;
 
 public interface PlayerControllerRequestMapper {
 
-    static PlayerServiceRequest toPlayerServiceRequest(PlayerControllerRequest playerControllerRequest) {
-        if (playerControllerRequest == null) {
-            return null;
-        }
+    static Player toPlayerEntityWithoutId(PlayerControllerRequest playerControllerRequest) {
 
-        return PlayerServiceRequest.builder()
-                .id(playerControllerRequest.getId())
+        return Player.builder()
+                .name(playerControllerRequest.getName())
+                .icon(playerControllerRequest.getIcon())
+                .bio(playerControllerRequest.getBio())
+                .age(playerControllerRequest.getAge())
+                .number(playerControllerRequest.getNumber())
+                .position(playerControllerRequest.getPosition())
+                .height(playerControllerRequest.getHeight())
+                .nationality(playerControllerRequest.getNationality())
+                .currentTeam(playerControllerRequest.getCurrentTeam())
+                .build();
+    }
+
+    static Player toPlayerEntityWithId(PlayerControllerRequest playerControllerRequest, String id) {
+
+        return Player.builder()
+                .id(id)
                 .name(playerControllerRequest.getName())
                 .icon(playerControllerRequest.getIcon())
                 .bio(playerControllerRequest.getBio())
