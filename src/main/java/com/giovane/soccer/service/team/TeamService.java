@@ -1,5 +1,6 @@
 package com.giovane.soccer.service.team;
 
+import com.giovane.soccer.controller.model.response.TeamControllerResponse;
 import com.giovane.soccer.entity.team.Team;
 import lombok.*;
 import reactor.core.publisher.Flux;
@@ -21,6 +22,10 @@ public class TeamService {
 
     public Mono<Team> update(Team team) {
         return repository.save(team);
+    }
+
+    public Mono<Team> addPlayer(String id, String playerId) {
+        return null;
     }
 
     public Mono<Void> deleteById(String id) {

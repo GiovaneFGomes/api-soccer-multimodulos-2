@@ -27,9 +27,9 @@ public class TeamControllerFacade {
                 .map(TeamControllerResponseMapper::toTeamControllerResponse);
     }
 
-//    public Mono<TeamControllerResponse> addPlayer(String id, String playerId) {
-//        return null;
-//    }
+    public Mono<TeamControllerResponse> addPlayer(String id, String playerId) {
+        return null;
+    }
 
     public Mono<Void> deleteById(String id) {
         return facade.deleteById(id);

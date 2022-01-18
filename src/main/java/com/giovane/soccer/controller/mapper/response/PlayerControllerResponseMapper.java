@@ -3,9 +3,9 @@ package com.giovane.soccer.controller.mapper.response;
 import com.giovane.soccer.entity.player.Player;
 import com.giovane.soccer.controller.model.response.PlayerControllerResponse;
 
-public interface PlayerControllerResponseMapper {
+public class PlayerControllerResponseMapper {
 
-    static PlayerControllerResponse toPlayerControllerResponse(Player player) {
+    public static PlayerControllerResponse toPlayerControllerResponse(Player player) {
 
         return PlayerControllerResponse.builder()
                 .id(player.getId())

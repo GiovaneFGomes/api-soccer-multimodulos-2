@@ -29,11 +29,11 @@ public class TeamController {
         return facade.update(teamControllerRequest, id);
     }
 
-//    @ResponseStatus(OK)
-//    @PatchMapping("/{id}/player/{playerId}")
-//    public Mono<TeamControllerResponse> addPlayer(@PathVariable("id") String id, @PathVariable String playerId) {
-//        return facade.addPlayer(id, playerId);
-//    }
+    @ResponseStatus(OK)
+    @PatchMapping("/{id}/player/{playerId}")
+    public Mono<TeamControllerResponse> addPlayer(@PathVariable String id, @PathVariable String playerId) {
+        return facade.addPlayer(id, playerId);
+    }
 
     @ResponseStatus(NO_CONTENT)
     @DeleteMapping("/{id}")

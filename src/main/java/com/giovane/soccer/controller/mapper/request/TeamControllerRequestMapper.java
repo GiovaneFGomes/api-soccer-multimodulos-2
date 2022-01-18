@@ -3,9 +3,9 @@ package com.giovane.soccer.controller.mapper.request;
 import com.giovane.soccer.controller.model.request.TeamControllerRequest;
 import com.giovane.soccer.entity.team.Team;
 
-public interface TeamControllerRequestMapper {
+public class TeamControllerRequestMapper {
 
-    static Team toTeamEntityWithoutId(TeamControllerRequest teamControllerRequest) {
+    public static Team toTeamEntityWithoutId(TeamControllerRequest teamControllerRequest) {
 
         return Team.builder()
                 .name(teamControllerRequest.getName())
@@ -23,7 +23,7 @@ public interface TeamControllerRequestMapper {
     }
 
 
-    static Team toTeamEntityWithId(TeamControllerRequest teamControllerRequest, String id) {
+    public static Team toTeamEntityWithId(TeamControllerRequest teamControllerRequest, String id) {
 
         return Team.builder()
                 .id(id)
