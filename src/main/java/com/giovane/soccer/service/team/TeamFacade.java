@@ -20,7 +20,7 @@ public class TeamFacade {
 
     public Mono<Team> update(Team team) {
         return teamService.findById(team.getId())
-                .flatMap(val -> teamService.update(team));
+                .flatMap(val -> teamService.save(team));
     }
 
     // todo fazer o patch para o atributo bio

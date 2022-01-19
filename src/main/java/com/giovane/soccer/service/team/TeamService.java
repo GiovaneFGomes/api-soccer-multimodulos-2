@@ -1,6 +1,5 @@
 package com.giovane.soccer.service.team;
 
-import com.giovane.soccer.controller.model.response.TeamControllerResponse;
 import com.giovane.soccer.entity.team.Team;
 import lombok.*;
 import reactor.core.publisher.Flux;
@@ -14,10 +13,10 @@ import static org.springframework.http.HttpStatus.*;
 @Service
 public class TeamService {
 
-    private final TeamRepository repository;
+    private final TeamRepository teamRepository;
 
     public Mono<Team> save(Team team) {
-        return repository.save(team);
+        return teamRepository.save(team);
     }
 
     public Mono<Team> addPlayer(String id, String playerId) {
@@ -25,16 +24,16 @@ public class TeamService {
     }
 
     public Mono<Void> deleteById(String id) {
-       return repository.deleteById(id);
+       return teamRepository.deleteById(id);
     }
 
     public Mono<Team> findById(String id) {
-        return repository.findById(id)
+        return teamRepository.findById(id)
                 .switchIfEmpty(Mono.error(new ResponseStatusException(NOT_FOUND, "ID not found")));
     }
 
     public Flux<Team> findAll() {
-        return repository.findAll();
+        return teamRepository.findAll();
     }
 
 }

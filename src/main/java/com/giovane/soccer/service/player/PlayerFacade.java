@@ -1,37 +1,38 @@
 package com.giovane.soccer.service.player;
 
-import com.giovane.soccer.entity.player.Player;
 import lombok.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import org.springframework.stereotype.*;
+import com.giovane.soccer.entity.player.Player;
+
 
 @AllArgsConstructor
 @Component
 public class PlayerFacade {
 
-    private final PlayerService service;
+    private final PlayerService playerService;
 
     public Mono<Player> save(Player player) {
-        return service.save(player);
+        return playerService.save(player);
     }
 
     public Mono<Player> update(Player player) {
-        return service.findById(player.getId())
-                .flatMap(val -> service.save(player));
+        return playerService.findById(player.getId())
+                .flatMap(val -> playerService.save(player));
     }
 
     public Mono<Void> deleteById(String id) {
-        return service.findById(id)
-                .flatMap(val -> service.deleteById(val.getId()));
+        return playerService.findById(id)
+                .flatMap(val -> playerService.deleteById(val.getId()));
     }
 
     public Mono<Player> findById(String id) {
-        return service.findById(id);
+        return playerService.findById(id);
     }
 
     public Flux<Player> findAll() {
-        return service.findAll();
+        return playerService.findAll();
     }
 
 }
