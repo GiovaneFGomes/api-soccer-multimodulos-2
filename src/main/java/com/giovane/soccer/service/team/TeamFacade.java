@@ -1,7 +1,6 @@
 package com.giovane.soccer.service.team;
 
 import com.giovane.soccer.entity.team.Team;
-import com.giovane.soccer.service.mapper.TeamModelMapper;
 import com.giovane.soccer.service.player.PlayerService;
 import lombok.*;
 import reactor.core.publisher.Flux;
@@ -23,6 +22,8 @@ public class TeamFacade {
         return teamService.findById(team.getId())
                 .flatMap(val -> teamService.update(team));
     }
+
+    // todo fazer o patch para o atributo bio
 
 //    public Mono<Team> addPlayer(String teamId, String playerId) {
 //        return Mono.just(new Team())
