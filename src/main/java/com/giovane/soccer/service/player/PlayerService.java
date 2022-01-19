@@ -13,27 +13,23 @@ import static org.springframework.http.HttpStatus.*;
 @Service
 public class PlayerService {
 
-    private final PlayerRepository repository;
+    private final PlayerRepository playerRepository;
 
     public Mono<Player> save(Player player) {
-        return repository.save(player);
-    }
-
-    public Mono<Player> update(Player player) {
-        return repository.save(player);
+        return playerRepository.save(player);
     }
 
     public Mono<Void> deleteById(String id) {
-        return repository.deleteById(id);
+        return playerRepository.deleteById(id);
     }
 
     public Mono<Player> findById(String id) {
-        return repository.findById(id)
+        return playerRepository.findById(id)
                 .switchIfEmpty(Mono.error(() -> new ResponseStatusException(NOT_FOUND, "ID not found")));
     }
 
     public Flux<Player> findAll() {
-        return repository.findAll();
+        return playerRepository.findAll();
     }
 
 }

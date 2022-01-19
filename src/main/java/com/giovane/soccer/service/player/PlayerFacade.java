@@ -18,7 +18,7 @@ public class PlayerFacade {
 
     public Mono<Player> update(Player player) {
         return service.findById(player.getId())
-                .flatMap(val -> service.update(player));
+                .flatMap(val -> service.save(player));
     }
 
     public Mono<Void> deleteById(String id) {

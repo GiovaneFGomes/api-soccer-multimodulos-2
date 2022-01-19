@@ -22,5 +22,5 @@ public class Player {
     private Position position;
     private Double height;
     private String nationality;
-    private Team currentTeam;
+    private Team currentTeam; // TODO currentTeam vai ter um patch. A opcao vai ser chosen by a image do time
 }

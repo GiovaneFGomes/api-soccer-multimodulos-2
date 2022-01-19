@@ -20,10 +20,6 @@ public class TeamService {
         return repository.save(team);
     }
 
-    public Mono<Team> update(Team team) {
-        return repository.save(team);
-    }
-
     public Mono<Team> addPlayer(String id, String playerId) {
         return null;
     }
