@@ -1,4 +1,4 @@
-package com.giovane.soccer.service.mapper;
+package com.giovane.soccer.service.mapper.patch;
 
 import com.giovane.soccer.entity.player.Player;
 import com.giovane.soccer.entity.team.Team;

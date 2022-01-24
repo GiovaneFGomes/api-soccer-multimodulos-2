@@ -1,10 +1,11 @@
 package com.giovane.soccer.service.player;
 
+import com.giovane.soccer.service.model.request.PlayerServiceRequest;
+import com.giovane.soccer.service.model.response.PlayerServiceResponse;
 import lombok.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import org.springframework.stereotype.*;
-import com.giovane.soccer.entity.player.Player;
 
 
 @AllArgsConstructor
@@ -13,13 +14,13 @@ public class PlayerFacade {
 
     private final PlayerService playerService;
 
-    public Mono<Player> save(Player player) {
-        return playerService.save(player);
+    public Mono<PlayerServiceResponse> save(PlayerServiceRequest playerServiceRequest) {
+        return playerService.save(playerServiceRequest);
     }
 
-    public Mono<Player> update(Player player) {
-        return playerService.findById(player.getId())
-                .flatMap(val -> playerService.save(player));
+    public Mono<PlayerServiceResponse> update(PlayerServiceRequest playerServiceRequest) {
+        return playerService.findById(playerServiceRequest.getId())
+                .flatMap(val -> playerService.save(playerServiceRequest));
     }
 
     public Mono<Void> deleteById(String id) {
@@ -27,11 +28,11 @@ public class PlayerFacade {
                 .flatMap(val -> playerService.deleteById(val.getId()));
     }
 
-    public Mono<Player> findById(String id) {
+    public Mono<PlayerServiceResponse> findById(String id) {
         return playerService.findById(id);
     }
 
-    public Flux<Player> findAll() {
+    public Flux<PlayerServiceResponse> findAll() {
         return playerService.findAll();
     }
 

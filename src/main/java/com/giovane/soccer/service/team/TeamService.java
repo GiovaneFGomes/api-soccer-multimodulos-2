@@ -1,6 +1,10 @@
 package com.giovane.soccer.service.team;
 
 import com.giovane.soccer.entity.team.Team;
+import com.giovane.soccer.service.mapper.request.TeamServiceRequestMapper;
+import com.giovane.soccer.service.mapper.response.TeamServiceResponseMapper;
+import com.giovane.soccer.service.model.request.TeamServiceRequest;
+import com.giovane.soccer.service.model.response.TeamServiceResponse;
 import lombok.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -19,7 +23,7 @@ public class TeamService {
         return teamRepository.save(team);
     }
 
-    public Mono<Team> addPlayer(String id, String playerId) {
+    public Mono<TeamServiceResponse> addPlayer(String teamId, String playerId) {
         return null;
     }
 

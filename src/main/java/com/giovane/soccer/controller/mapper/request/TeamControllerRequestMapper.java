@@ -1,13 +1,14 @@
 package com.giovane.soccer.controller.mapper.request;
 
 import com.giovane.soccer.controller.model.request.TeamControllerRequest;
-import com.giovane.soccer.entity.team.Team;
+import com.giovane.soccer.service.model.request.TeamServiceRequest;
 
 public class TeamControllerRequestMapper {
 
-    public static Team toTeamEntityWithoutId(TeamControllerRequest teamControllerRequest) {
+    public static TeamServiceRequest toTeamServiceWithId(TeamControllerRequest teamControllerRequest, String id) {
 
-        return Team.builder()
+        return TeamServiceRequest.builder()
+                .id(id)
                 .name(teamControllerRequest.getName())
                 .icon(teamControllerRequest.getIcon())
                 .bio(teamControllerRequest.getBio())
@@ -22,11 +23,9 @@ public class TeamControllerRequestMapper {
                 .build();
     }
 
+    public static TeamServiceRequest toTeamServiceWithoutId(TeamControllerRequest teamControllerRequest) {
 
-    public static Team toTeamEntityWithId(TeamControllerRequest teamControllerRequest, String id) {
-
-        return Team.builder()
-                .id(id)
+        return TeamServiceRequest.builder()
                 .name(teamControllerRequest.getName())
                 .icon(teamControllerRequest.getIcon())
                 .bio(teamControllerRequest.getBio())

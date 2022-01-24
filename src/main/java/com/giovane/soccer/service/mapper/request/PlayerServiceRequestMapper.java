@@ -1,14 +1,13 @@
-package com.giovane.soccer.controller.mapper.response;
+package com.giovane.soccer.service.mapper.request;
 
-import com.giovane.soccer.controller.model.response.PlayerControllerResponse;
+import com.giovane.soccer.entity.player.Player;
 import com.giovane.soccer.service.model.request.PlayerServiceRequest;
-import com.giovane.soccer.service.model.response.PlayerServiceResponse;
 
-public class PlayerControllerResponseMapper {
+public class PlayerServiceRequestMapper {
 
-    public static PlayerControllerResponse toPlayerControllerResponse(PlayerServiceResponse playerServiceRequest) {
+    public static Player toPlayerEntity(PlayerServiceRequest playerServiceRequest) {
 
-        return PlayerControllerResponse.builder()
+        return Player.builder()
                 .id(playerServiceRequest.getId())
                 .name(playerServiceRequest.getName())
                 .icon(playerServiceRequest.getIcon())
