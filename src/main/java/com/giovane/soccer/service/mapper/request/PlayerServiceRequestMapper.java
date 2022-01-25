@@ -17,7 +17,6 @@ public class PlayerServiceRequestMapper {
                 .position(playerServiceRequest.getPosition())
                 .height(playerServiceRequest.getHeight())
                 .nationality(playerServiceRequest.getNationality())
-                .currentTeam(playerServiceRequest.getCurrentTeam())
                 .build();
     }
 

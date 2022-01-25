@@ -18,5 +18,4 @@ public class PlayerServiceRequest {
     private Position position;
     private Double height;
     private String nationality;
-    private Team currentTeam;
 }

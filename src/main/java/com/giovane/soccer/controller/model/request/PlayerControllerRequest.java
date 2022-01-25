@@ -38,5 +38,4 @@ public class PlayerControllerRequest {
     @Size(max = 25, message = "Max 25 characters.")
     private String nationality;
 
-    private Team currentTeam;
 }

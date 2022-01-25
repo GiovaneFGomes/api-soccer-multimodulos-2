@@ -17,7 +17,6 @@ public class PlayerServiceResponseMapper {
                 .position(player.getPosition())
                 .height(player.getHeight())
                 .nationality(player.getNationality())
-                .currentTeam(player.getCurrentTeam())
                 .build();
     }
 

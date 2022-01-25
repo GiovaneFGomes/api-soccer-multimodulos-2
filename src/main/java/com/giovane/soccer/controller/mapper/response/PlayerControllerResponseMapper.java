@@ -1,7 +1,6 @@
 package com.giovane.soccer.controller.mapper.response;
 
 import com.giovane.soccer.controller.model.response.PlayerControllerResponse;
-import com.giovane.soccer.service.model.request.PlayerServiceRequest;
 import com.giovane.soccer.service.model.response.PlayerServiceResponse;
 
 public class PlayerControllerResponseMapper {
@@ -18,7 +17,6 @@ public class PlayerControllerResponseMapper {
                 .position(playerServiceRequest.getPosition())
                 .height(playerServiceRequest.getHeight())
                 .nationality(playerServiceRequest.getNationality())
-                .currentTeam(playerServiceRequest.getCurrentTeam())
                 .build();
     }
 

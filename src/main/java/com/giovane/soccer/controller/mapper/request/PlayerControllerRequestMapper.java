@@ -17,7 +17,6 @@ public class PlayerControllerRequestMapper {
                 .position(playerControllerRequest.getPosition())
                 .height(playerControllerRequest.getHeight())
                 .nationality(playerControllerRequest.getNationality())
-                .currentTeam(playerControllerRequest.getCurrentTeam())
                 .build();
     }
 
@@ -32,7 +31,6 @@ public class PlayerControllerRequestMapper {
                 .position(playerControllerRequest.getPosition())
                 .height(playerControllerRequest.getHeight())
                 .nationality(playerControllerRequest.getNationality())
-                .currentTeam(playerControllerRequest.getCurrentTeam())
                 .build();
     }
 
